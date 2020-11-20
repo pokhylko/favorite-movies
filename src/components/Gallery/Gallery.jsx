@@ -8,7 +8,7 @@ export const Gallery = ({ movies }) => (
     {movies.map((movie) => (
       <div
         className="gallery__item"
-        key={movie.id}
+        key={movie.imdbID}
       >
         <MovieCard movie={movie} />
       </div>
@@ -19,9 +19,7 @@ export const Gallery = ({ movies }) => (
 Gallery.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape).isRequired,
   movie: PropTypes.shape({
-    title: PropTypes.string,
-    rank: PropTypes.string,
-    id: PropTypes.string,
+    imdbID: PropTypes.string,
   }),
 };
 
