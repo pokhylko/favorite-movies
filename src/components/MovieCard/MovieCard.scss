@@ -1,0 +1,11 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 30px;
+  background-color: #faf7f3;
+  border-radius: 15px;
+  cursor: pointer;
+}

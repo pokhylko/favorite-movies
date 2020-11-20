@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
+import data from './data/movies.json';
 
-export const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit
-        <code>src/App.js</code>
-        and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
-);
+import { Gallery } from './components/Gallery';
+import { Favourite } from './components/Favourite';
+
+export const App = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    setMovies(data);
+  }, []);
+
+  console.log(movies);
+
+  return (
+    <div className="wrapper">
+      <Gallery movies={movies} />
+      <Favourite />
+    </div>
+  );
+};
