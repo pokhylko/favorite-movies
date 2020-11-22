@@ -4,19 +4,10 @@ import PropTypes from 'prop-types';
 import starInactive from '../../images/star-inactive.svg';
 import starActive from '../../images/star-active.svg';
 
-export const MovieCard = ({ movie, favouriteList, setFavouriteList }) => {
+export const MovieCard = ({ movie, favouriteList, changeFavouriteList }) => {
   const {
     Title, Year, Poster, imdbID,
   } = movie;
-
-  const changeFavouriteList = (imdbId) => {
-    if (favouriteList.includes(imdbId)) {
-      setFavouriteList((state) => state
-        .filter((favouriteId) => favouriteId !== imdbId));
-    } else {
-      setFavouriteList((state) => [...state, imdbId]);
-    }
-  };
 
   return (
     <div className="movie-card">
@@ -54,7 +45,7 @@ MovieCard.propTypes = {
     Genre: PropTypes.string,
   }).isRequired,
   favouriteList: PropTypes.arrayOf(PropTypes.string),
-  setFavouriteList: PropTypes.func.isRequired,
+  changeFavouriteList: PropTypes.func.isRequired,
 };
 
 MovieCard.defaultProps = {

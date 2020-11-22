@@ -1,5 +1,31 @@
 .favorite {
+  font-size: 18px;
   width: 300px;
   background-color: #faf7f3;
   padding: 50px 30px;
+
+  &__title-icon {
+    width: 25px;
+    margin-right: 10px;
+  }
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__movie {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__cancel {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
 }

@@ -3,7 +3,7 @@ import './Gallery.scss';
 import PropTypes from 'prop-types';
 import { MovieCard } from '../MovieCard';
 
-export const Gallery = ({ movies, favouriteList, setFavouriteList }) => (
+export const Gallery = ({ movies, favouriteList, changeFavouriteList }) => (
   <div className="gallery">
     {movies.map((movie) => (
       <div
@@ -13,7 +13,7 @@ export const Gallery = ({ movies, favouriteList, setFavouriteList }) => (
         <MovieCard
           movie={movie}
           favouriteList={favouriteList}
-          setFavouriteList={setFavouriteList}
+          changeFavouriteList={changeFavouriteList}
         />
       </div>
     ))}
@@ -26,7 +26,7 @@ Gallery.propTypes = {
     imdbID: PropTypes.string,
   }),
   favouriteList: PropTypes.arrayOf(PropTypes.string),
-  setFavouriteList: PropTypes.func.isRequired,
+  changeFavouriteList: PropTypes.func.isRequired,
 };
 
 Gallery.defaultProps = {

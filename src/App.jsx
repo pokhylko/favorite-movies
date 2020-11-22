@@ -13,14 +13,27 @@ export const App = () => {
     setMovies(data);
   }, []);
 
+  const changeFavouriteList = (imdbId) => {
+    if (favouriteList.includes(imdbId)) {
+      setFavouriteList((state) => state
+        .filter((favouriteId) => favouriteId !== imdbId));
+    } else {
+      setFavouriteList((state) => [...state, imdbId]);
+    }
+  };
+
   return (
     <div className="wrapper">
       <Gallery
         movies={movies}
         favouriteList={favouriteList}
-        setFavouriteList={setFavouriteList}
+        changeFavouriteList={changeFavouriteList}
       />
-      <Favourite />
+      <Favourite
+        movies={movies}
+        favouriteList={favouriteList}
+        changeFavouriteList={changeFavouriteList}
+      />
     </div>
   );
 };
