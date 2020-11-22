@@ -13,3 +13,27 @@
   margin: 0 15px 50px;
   width: calc(25% - 30px);
 }
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .gallery__item {
+    width: calc(33.333% - 30px);
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 991px) {
+  .gallery__item {
+    width: calc(50% - 30px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .gallery {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .gallery__item {
+    width: 100%;
+  }
+}
