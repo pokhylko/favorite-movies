@@ -24,6 +24,15 @@
     height: 62px;
   }
 
+  &__title-link {
+    text-decoration: none;
+    color: #010001;
+
+    &:hover {
+      color: #d5b084;
+    }
+  }
+
   &__favourite {
     position: absolute;
     bottom: 10px;

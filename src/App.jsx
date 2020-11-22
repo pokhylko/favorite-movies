@@ -4,10 +4,13 @@ import data from './data/movies.json';
 
 import { Gallery } from './components/Gallery';
 import { Favourite } from './components/Favourite';
+import { Modal } from './components/Modal';
+import { getMovieById } from './api/api';
 
 export const App = () => {
   const [movies, setMovies] = useState([]);
   const [favouriteList, setFavouriteList] = useState([]);
+  const [modalMovie, setModalMovie] = useState({});
 
   useEffect(() => {
     setMovies(data);
@@ -22,15 +25,28 @@ export const App = () => {
     }
   };
 
+  const getMovie = (imdbId) => {
+    getMovieById(imdbId)
+      .then((movie) => setModalMovie(movie));
+  };
+
   return (
     <div className="wrapper">
       <Gallery
         movies={movies}
         favouriteList={favouriteList}
         changeFavouriteList={changeFavouriteList}
+        getMovie={getMovie}
       />
       <Favourite
         movies={movies}
+        favouriteList={favouriteList}
+        changeFavouriteList={changeFavouriteList}
+        getMovie={getMovie}
+      />
+      <Modal
+        modalMovie={modalMovie}
+        setModalMovie={setModalMovie}
         favouriteList={favouriteList}
         changeFavouriteList={changeFavouriteList}
       />

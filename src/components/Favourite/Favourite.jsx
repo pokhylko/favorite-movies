@@ -4,47 +4,62 @@ import PropTypes from 'prop-types';
 import starActive from '../../images/star-active.svg';
 import cancel from '../../images/cancel.svg';
 
-export const Favourite = ({ movies, favouriteList, changeFavouriteList }) => (
-  <div className="favorite">
-    <h2 className="favorite__title">
-      <img
-        className="favorite__title-icon"
-        src={starActive}
-        alt="star icon"
-      />
-      Favorite movies
-    </h2>
+export const Favourite = ({
+  movies, favouriteList, changeFavouriteList, getMovie,
+}) => {
+  const getMovieById = (event, imdbId) => {
+    event.preventDefault();
 
-    <div className="favorite__content">
-      {favouriteList.length === 0
-        ? ('Not selected movies')
-        : (favouriteList.map((movieId) => (
-          <div className="favorite__movie" key={movieId}>
-            <p className="favorite__text">
-              {movies.find((movie) => movie.imdbID === movieId).Title}
-            </p>
+    getMovie(imdbId);
+  };
 
-            <button
-              className="favorite__cancel"
-              type="button"
-              onClick={() => changeFavouriteList(movieId)}
-            >
-              <img
-                className="favorite__cancel-icon"
-                src={cancel}
-                alt="cancel icon"
-              />
-            </button>
-          </div>
-        )))}
+  return (
+    <div className="favorite">
+      <h2 className="favorite__title">
+        <img
+          className="favorite__title-icon"
+          src={starActive}
+          alt="star icon"
+        />
+        Favorite movies
+      </h2>
+
+      <div className="favorite__content">
+        {favouriteList.length === 0
+          ? ('Not selected movies')
+          : (favouriteList.map((movieId) => (
+            <div className="favorite__movie" key={movieId}>
+              <a
+                className="favorite__link"
+                href="/#"
+                onClick={(event) => getMovieById(event, movieId)}
+              >
+                {movies.find((movie) => movie.imdbID === movieId).Title}
+              </a>
+
+              <button
+                className="favorite__cancel"
+                type="button"
+                onClick={() => changeFavouriteList(movieId)}
+              >
+                <img
+                  className="favorite__cancel-icon"
+                  src={cancel}
+                  alt="cancel icon"
+                />
+              </button>
+            </div>
+          )))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 Favourite.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape).isRequired,
   favouriteList: PropTypes.arrayOf(PropTypes.string),
   changeFavouriteList: PropTypes.func.isRequired,
+  getMovie: PropTypes.func.isRequired,
 };
 
 Favourite.defaultProps = {
