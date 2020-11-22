@@ -30,12 +30,15 @@
   }
 
   &__cancel {
-    width: 22px;
-    height: 22px;
     padding: 0;
     border: 0;
     background-color: transparent;
     cursor: pointer;
+  }
+
+  &__cancel-icon {
+    width: 22px;
+    height: 22px;
   }
 }
 
