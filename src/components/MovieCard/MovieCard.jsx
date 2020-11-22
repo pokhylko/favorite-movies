@@ -2,11 +2,21 @@ import React from 'react';
 import './MovieCard.scss';
 import PropTypes from 'prop-types';
 import starInactive from '../../images/star-inactive.svg';
+import starActive from '../../images/star-active.svg';
 
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, favouriteList, setFavouriteList }) => {
   const {
-    Title, Year, Poster,
+    Title, Year, Poster, imdbID,
   } = movie;
+
+  const changeFavouriteList = (imdbId) => {
+    if (favouriteList.includes(imdbId)) {
+      setFavouriteList((state) => state
+        .filter((favouriteId) => favouriteId !== imdbId));
+    } else {
+      setFavouriteList((state) => [...state, imdbId]);
+    }
+  };
 
   return (
     <div className="movie-card">
@@ -18,11 +28,17 @@ export const MovieCard = ({ movie }) => {
       <div className="movie-card__content">
         <h2 className="movie-card__title">{Title}</h2>
         <h4 className="movie-card__year">{Year}</h4>
-        <img
-          className="movie-card__star"
-          src={starInactive}
-          alt="icon"
-        />
+        <button
+          className="movie-card__favourite"
+          type="button"
+          onClick={() => changeFavouriteList(imdbID)}
+        >
+          <img
+            className="movie-card__star"
+            src={favouriteList.includes(imdbID) ? starActive : starInactive}
+            alt="icon"
+          />
+        </button>
       </div>
     </div>
   );
@@ -37,4 +53,10 @@ MovieCard.propTypes = {
     Plot: PropTypes.string,
     Genre: PropTypes.string,
   }).isRequired,
+  favouriteList: PropTypes.arrayOf(PropTypes.string),
+  setFavouriteList: PropTypes.func.isRequired,
+};
+
+MovieCard.defaultProps = {
+  favouriteList: [],
 };

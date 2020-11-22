@@ -7,16 +7,19 @@ import { Favourite } from './components/Favourite';
 
 export const App = () => {
   const [movies, setMovies] = useState([]);
+  const [favouriteList, setFavouriteList] = useState([]);
 
   useEffect(() => {
     setMovies(data);
   }, []);
 
-  console.log(movies);
-
   return (
     <div className="wrapper">
-      <Gallery movies={movies} />
+      <Gallery
+        movies={movies}
+        favouriteList={favouriteList}
+        setFavouriteList={setFavouriteList}
+      />
       <Favourite />
     </div>
   );

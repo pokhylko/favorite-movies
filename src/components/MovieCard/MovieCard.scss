@@ -5,7 +5,6 @@
   width: 100%;
   background-color: #faf7f3;
   border-radius: 15px;
-  cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow: hidden;
@@ -25,12 +24,15 @@
     height: 62px;
   }
 
-  &__star {
+  &__favourite {
     position: absolute;
     bottom: 10px;
     right: 10px;
     width: 20px;
     cursor: pointer;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
   }
 
   &__plot {
