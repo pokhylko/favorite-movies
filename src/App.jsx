@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
-import data from './data/movies.json';
 
 import { Gallery } from './components/Gallery';
 import { Favourite } from './components/Favourite';
 import { Modal } from './components/Modal';
-import { getMovieById } from './api/api';
+import { getAllMovies, getMovieById } from './api/api';
 
 export const App = () => {
   const [movies, setMovies] = useState([]);
@@ -13,7 +12,8 @@ export const App = () => {
   const [modalMovie, setModalMovie] = useState({});
 
   useEffect(() => {
-    setMovies(data);
+    getAllMovies()
+      .then((allMovies) => setMovies(allMovies));
   }, []);
 
   const changeFavouriteList = (imdbId) => {
