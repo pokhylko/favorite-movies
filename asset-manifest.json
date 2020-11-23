@@ -1,23 +1,20 @@
 {
   "files": {
     "main.css": "./static/css/main.0692b24c.chunk.css",
-    "main.js": "./static/js/main.c9bb7dac.chunk.js",
-    "main.js.map": "./static/js/main.c9bb7dac.chunk.js.map",
+    "main.js": "./static/js/main.cab6da6d.chunk.js",
+    "main.js.map": "./static/js/main.cab6da6d.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.ec067bf9.js",
     "runtime-main.js.map": "./static/js/runtime-main.ec067bf9.js.map",
     "static/js/2.aa33a648.chunk.js": "./static/js/2.aa33a648.chunk.js",
     "static/js/2.aa33a648.chunk.js.map": "./static/js/2.aa33a648.chunk.js.map",
     "index.html": "./index.html",
     "static/css/main.0692b24c.chunk.css.map": "./static/css/main.0692b24c.chunk.css.map",
-    "static/js/2.aa33a648.chunk.js.LICENSE.txt": "./static/js/2.aa33a648.chunk.js.LICENSE.txt",
-    "static/media/cancel.bb8fe364.svg": "./static/media/cancel.bb8fe364.svg",
-    "static/media/star-active.de82f684.svg": "./static/media/star-active.de82f684.svg",
-    "static/media/star-inactive.dd913ac2.svg": "./static/media/star-inactive.dd913ac2.svg"
+    "static/js/2.aa33a648.chunk.js.LICENSE.txt": "./static/js/2.aa33a648.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ec067bf9.js",
     "static/js/2.aa33a648.chunk.js",
     "static/css/main.0692b24c.chunk.css",
-    "static/js/main.c9bb7dac.chunk.js"
+    "static/js/main.cab6da6d.chunk.js"
   ]
 }

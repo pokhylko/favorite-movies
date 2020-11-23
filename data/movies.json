@@ -1,0 +1,92 @@
+[
+    {
+        "Title": "Spider-Man: Into the Spider-Verse",
+        "Rank": "1",
+        "imdbID": "tt4633694",
+        "Year":"2018",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_SX300.jpg",
+        "Plot":"Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+        "Genre":"Animation, Action, Adventure, Family, Sci-Fi"
+    },
+    {
+        "Title": "Parasite",
+        "Rank": "2",
+        "imdbID": "tt6751668",
+        "Year":"2019",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+        "Plot":"Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+        "Genre":"Comedy, Drama, Thriller"
+    },
+    {
+        "Title": "1917",
+        "Rank": "3",
+        "imdbID": "tt8579674",
+        "Year":"2019",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BOTdmNTFjNDEtNzg0My00ZjkxLTg1ZDAtZTdkMDc2ZmFiNWQ1XkEyXkFqcGdeQXVyNTAzNzgwNTg@._V1_SX300.jpg",
+        "Plot":"April 6th, 1917. As a regiment assembles to wage war deep in enemy territory, two soldiers are assigned to race against time and deliver a message that will stop 1,600 men from walking straight into a deadly trap.",
+        "Genre":"Drama, War"
+    },
+    {
+        "Title": "Avengers: Endgame",
+        "Rank": "4",
+        "imdbID": "tt4154796",
+        "Year":"2019",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
+        "Plot":"After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
+        "Genre":"Action, Adventure, Drama, Sci-Fi"
+    },
+    {
+        "Title": "The Shawshank Redemption",
+        "Rank": "5",
+        "imdbID": "tt0111161",
+        "Year":"1994",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+        "Plot":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "Genre":"Drama"
+    },
+    {
+        "Title": "The Wolf of Wall Street",
+        "Rank": "6",
+        "imdbID": "tt0993846",
+        "Year":"2013",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg",
+        "Plot":"Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.",
+        "Genre":"Biography, Crime, Drama"
+    },
+    {
+        "Title": "Joker",
+        "Rank": "7",
+        "imdbID": "tt7286456",
+        "Year":"2019",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+        "Plot":"In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
+        "Genre":"Crime, Drama, Thriller"
+    },
+    {
+        "Title": "The Godfather",
+        "Rank": "8",
+        "imdbID": "tt0068646",
+        "Year":"1972",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+        "Plot":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "Genre":"Crime, Drama"
+    },
+    {
+        "Title": "Interstellar",
+        "Rank": "9",
+        "imdbID": "tt0816692",
+        "Year":"2014",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+        "Plot":"A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+        "Genre":"Adventure, Drama, Sci-Fi, Thriller"
+    },
+    {
+        "Title": "One Flew Over the Cuckoo's Nest",
+        "Rank": "10",
+        "imdbID": "tt0073486",
+        "Year":"1975",
+        "Poster":"https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+        "Plot":"A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.",
+        "Genre":"Drama"
+    }
+]
