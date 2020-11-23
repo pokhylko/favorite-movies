@@ -15,3 +15,23 @@ body {
 img {
   width: 100%;
 }
+
+.cancel-icon {
+  transition: fill 0.5s ease;
+
+  &:hover {
+    fill: #f00;
+  }
+}
+
+.star-inactive-icon {
+  transition: fill 0.5s ease;
+
+  &:hover {
+    fill: #ffc107;
+  }
+}
+
+.star-active-icon {
+  fill: #ffc107;
+}

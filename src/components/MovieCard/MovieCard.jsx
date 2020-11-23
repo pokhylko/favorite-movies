@@ -1,6 +1,8 @@
 import React from 'react';
 import './MovieCard.scss';
 import PropTypes from 'prop-types';
+import { ReactComponent as StarActiveIcon } from '../../images/star-active.svg';
+import { ReactComponent as StarInactiveIcon } from '../../images/star-inactive.svg';
 
 export const MovieCard = ({
   movie, favouriteList, changeFavouriteList, getMovie,
@@ -39,18 +41,15 @@ export const MovieCard = ({
           </a>
         </h2>
         <h4 className="movie-card__year">{Year}</h4>
+
         <button
           className="movie-card__favourite"
           type="button"
           onClick={() => changeFavouriteList(imdbID)}
         >
-          <img
-            className="movie-card__star"
-            src={favouriteList.includes(imdbID)
-              ? './images/star-active.svg'
-              : './images/star-inactive.svg'}
-            alt="icon"
-          />
+          {favouriteList.includes(imdbID)
+            ? <StarActiveIcon />
+            : <StarInactiveIcon />}
         </button>
       </div>
     </div>

@@ -1,7 +1,10 @@
 import React from 'react';
 import './Modal.scss';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import cn from 'classnames';
+import { ReactComponent as StarActiveIcon } from '../../images/star-active.svg';
+import { ReactComponent as StarInactiveIcon } from '../../images/star-inactive.svg';
+import { ReactComponent as CloseIcon } from '../../images/cancel.svg';
 
 export const Modal = ({
   modalMovie, setModalMovie, favouriteList, changeFavouriteList,
@@ -11,7 +14,7 @@ export const Modal = ({
   } = modalMovie;
 
   return (
-    <div className={classNames(
+    <div className={cn(
       'modal',
       { 'modal--open': Title },
     )}
@@ -31,17 +34,13 @@ export const Modal = ({
                   type="button"
                   onClick={() => changeFavouriteList(imdbID)}
                 >
-                  <img
-                    className="modal__star"
-                    src={favouriteList.includes(imdbID)
-                      ? './images/star-active.svg'
-                      : './images/star-inactive.svg'}
-                    alt="icon"
-                  />
+                  {favouriteList.includes(imdbID)
+                    ? <StarActiveIcon />
+                    : <StarInactiveIcon />}
                 </button>
                 <p className="modal__year">{Year}</p>
                 <p className="modal__runtime">{Runtime}</p>
-                <p className="genres">{Genre}</p>
+                <p className="modal__genres">{Genre}</p>
               </div>
               <p className="modal__plot">{Plot}</p>
               <p className="modal__director">{`Director: ${Director}`}</p>
@@ -57,11 +56,7 @@ export const Modal = ({
               type="button"
               onClick={() => setModalMovie({})}
             >
-              <img
-                className="favorite__cancel-icon"
-                src="./images/cancel.svg"
-                alt="cancel icon"
-              />
+              <CloseIcon />
             </button>
           </>
         )}

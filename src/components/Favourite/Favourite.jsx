@@ -1,6 +1,8 @@
 import React from 'react';
 import './Favourite.scss';
 import PropTypes from 'prop-types';
+import { ReactComponent as CancelIcon } from '../../images/cancel.svg';
+import { ReactComponent as StarActiveIcon } from '../../images/star-active.svg';
 
 export const Favourite = ({
   movies, favouriteList, changeFavouriteList, getMovie,
@@ -14,11 +16,9 @@ export const Favourite = ({
   return (
     <div className="favorite">
       <h2 className="favorite__title">
-        <img
-          className="favorite__title-icon"
-          src="./images/star-active.svg"
-          alt="star icon"
-        />
+        <div className="favorite__title-icon">
+          <StarActiveIcon />
+        </div>
         Favorite movies
       </h2>
 
@@ -40,11 +40,7 @@ export const Favourite = ({
                 type="button"
                 onClick={() => changeFavouriteList(movieId)}
               >
-                <img
-                  className="favorite__cancel-icon"
-                  src="./images/cancel.svg"
-                  alt="cancel icon"
-                />
+                <CancelIcon />
               </button>
             </div>
           )))}
