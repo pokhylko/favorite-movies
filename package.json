@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint-js": "eslint src/**/*.js src/**/*.jsx",
-    "lint-css": "stylelint src/**/*.css src/**/*.scss",
+    "lint-css": "stylelint src/**/*.css src/**/*.scss --fix",
     "lint": "npm run lint-js && npm run lint-css"
   },
   "eslintConfig": {

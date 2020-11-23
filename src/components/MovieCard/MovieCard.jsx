@@ -1,8 +1,6 @@
 import React from 'react';
 import './MovieCard.scss';
 import PropTypes from 'prop-types';
-import starInactive from '../../images/star-inactive.svg';
-import starActive from '../../images/star-active.svg';
 
 export const MovieCard = ({
   movie, favouriteList, changeFavouriteList, getMovie,
@@ -48,7 +46,9 @@ export const MovieCard = ({
         >
           <img
             className="movie-card__star"
-            src={favouriteList.includes(imdbID) ? starActive : starInactive}
+            src={favouriteList.includes(imdbID)
+              ? './images/star-active.svg'
+              : './images/star-inactive.svg'}
             alt="icon"
           />
         </button>
