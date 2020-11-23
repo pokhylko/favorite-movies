@@ -13,7 +13,9 @@ export const App = () => {
 
   useEffect(() => {
     getAllMovies()
-      .then((allMovies) => setMovies(allMovies));
+      .then((moviesData) => {
+        setMovies(moviesData);
+      });
   }, []);
 
   const changeFavouriteList = (imdbId) => {

@@ -1,17 +1,22 @@
 .gallery {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: calc(100% - 200px);
   padding: 50px 20px 0;
   background-color: #fff;
-}
 
-.gallery__item {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin: 0 15px 50px;
-  width: calc(25% - 30px);
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 15px 50px;
+    width: calc(25% - 30px);
+  }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
