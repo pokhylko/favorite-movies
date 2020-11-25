@@ -1,4 +1,4 @@
-# Favourite movies
+# Favorite movies
 
 [Link to the project](https://pokhylko.github.io/favorite-movies/)
 
