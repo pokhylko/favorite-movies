@@ -1,5 +1,49 @@
 @use './styles' as *;
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $main-font;
+  margin: 0;
+  color: $text-color;
+  background-color: $bg-color;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+button,
+input {
+  outline: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1660px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 0 2rem;
+}
+
+.section__header {
+  @include flex(center, space-between);
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
