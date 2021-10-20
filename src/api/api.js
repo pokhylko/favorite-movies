@@ -1,21 +1,56 @@
-const BASE_URL = 'https://pokhylko.github.io/favorite-movies/data/movies.json';
-const API_URL = 'https://www.omdbapi.com/';
-const API_KEY = '91441aae';
+import { axiosClient } from './axiosClient';
 
-export const getAllMovies = () => fetch(BASE_URL)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`${response.status}`);
-    }
+export const CATEGORY = {
+  movie: 'movie',
+  tv: 'tv',
+};
 
-    return response.json();
-  });
+export const MOVIE_TYPE = {
+  upcoming: 'upcoming',
+  popular: 'popular',
+  top_rated: 'top_rated',
+};
 
-export const getMovieById = (imdbId) => fetch(`${API_URL}?apikey=${API_KEY}&i=${imdbId}`)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`${response.status}`);
-    }
+export const TV_TYPE = {
+  popular: 'popular',
+  top_rated: 'top_rated',
+  on_the_air: 'on_the_air',
+};
 
-    return response.json();
-  });
+export const API = {
+  getMoviesList: (type, params) => {
+    const url = `movie/${MOVIE_TYPE[type]}`;
+
+    return axiosClient(url, params);
+  },
+  getTvList: (type, params) => {
+    const url = `tv/${TV_TYPE[type]}`;
+
+    return axiosClient(url, params);
+  },
+  getVideos: (category, id) => {
+    const url = `${CATEGORY[category]}/${id}/videos`;
+
+    return axiosClient(url, { params: {} });
+  },
+  search: (category, params) => {
+    const url = `search/${CATEGORY[category]}`;
+
+    return axiosClient(url, params);
+  },
+  detail: (category, id, params) => {
+    const url = `${CATEGORY[category]}/${id}`;
+
+    return axiosClient(url, params);
+  },
+  credits: (category, id) => {
+    const url = `${CATEGORY[category]}/${id}/credits`;
+
+    return axiosClient(url, { params: {} });
+  },
+  similar: (category, id) => {
+    const url = `${CATEGORY[category]}/${id}/similar`;
+
+    return axiosClient(url, { params: {} });
+  },
+};
