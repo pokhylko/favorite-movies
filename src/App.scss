@@ -18,6 +18,12 @@ a {
   color: unset;
 }
 
+@media (hover: hover) {
+  a:hover {
+    color: $main-color;
+  }
+}
+
 button,
 input {
   outline: none;
