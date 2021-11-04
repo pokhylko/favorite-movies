@@ -32,7 +32,7 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   id: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
 };
