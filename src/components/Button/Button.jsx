@@ -28,5 +28,5 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
   size: PropTypes.string,
-  variant: PropTypes.oneOf(['primary, outline']),
+  variant: PropTypes.oneOf(['primary', 'outline']),
 };
