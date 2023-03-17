@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 
-import './Header.scss';
+import { ReactComponent as Logo } from '../../images/logo.svg';
+
+import styles from './Header.module.scss';
 
 const HEADER_NAV = [
   {
@@ -21,16 +23,16 @@ const HEADER_NAV = [
 
 export const Header = () => {
   const { pathname } = useLocation();
-  const headerRef = useRef(null);
+  const headerRef = useRef<HTMLInputElement>(null);
 
   const active = HEADER_NAV.findIndex((e) => e.path === pathname);
 
   useEffect(() => {
     const shrinkHeader = () => {
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        headerRef.current.classList.add('header--shrink');
+        headerRef.current?.classList.add(styles['header--shrink']);
       } else {
-        headerRef.current.classList.remove('header--shrink');
+        headerRef.current?.classList.remove(styles['header--shrink']);
       }
     };
 
@@ -42,18 +44,18 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className="header" ref={headerRef}>
-      <div className="header__wrapper container">
-        <div className="header__logo">
-          <Link to="/">Logo</Link>
-        </div>
+    <div className={styles.header} ref={headerRef}>
+      <div className={cn(styles.header__wrapper, 'container')}>
+        <Link to="/">
+          <Logo className={styles.header__logo} />
+        </Link>
 
-        <nav className="header__nav">
-          <ul className="header__nav-list">
+        <nav className={styles.header__nav}>
+          <ul className={styles.header__nav_list}>
             {HEADER_NAV.map(({ display, path }, i) => (
               <li
-                className={cn('header__nav-item', {
-                  'header__nav-item--active': i === active,
+                className={cn(styles.header__nav_item, {
+                  [styles['header__nav_item--active']]: i === active,
                 })}
                 key={path}
               >
