@@ -1,6 +1,6 @@
-@use './styles' as *;
+@use 'styles' as *;
 /* stylelint-disable no-invalid-position-at-import-rule */
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&display=swap');
 
 * {
   box-sizing: border-box;
@@ -43,23 +43,18 @@ img {
 .container {
   max-width: 1660px;
   margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .section {
   padding: 0 2rem;
 }
 
-.section__header {
-  @include flex(center, space-between);
+.mb-3 {
+  margin-bottom: 3rem;
 }
 
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-@media screen and (max-width: 767px) {
-  .wrapper {
-    flex-direction: column;
-  }
+.mb-2 {
+  margin-bottom: 2rem;
 }
