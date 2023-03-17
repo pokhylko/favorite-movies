@@ -1,1 +1,4 @@
-$box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+@use 'colors' as *;
+
+$box-shadow: 0 0 14px -7px $main-color-dark;
+$box-shadow-hover: 0 0 14px -7px $main-color-dark;
