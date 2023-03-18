@@ -8,12 +8,15 @@ export const axiosClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  paramsSerializer: (params) => queryString.stringify({ ...params, api_key: API_CONFIG.apiKey }),
+  paramsSerializer: {
+    serialize: (params) => queryString.stringify({ ...params, api_key: API_CONFIG.apiKey }),
+  },
 });
 
 axiosClient.interceptors.request.use(async (config) => config);
 axiosClient.interceptors.response.use((response) => {
   if (response && response.data) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return response.data;
   }
 
