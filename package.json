@@ -16,15 +16,19 @@
     "swiper": "9.1.1"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint-js": "eslint src/**/*.js src/**/*.jsx",
+    "lint-ts": "eslint src/**/*.ts src/**/*.tsx",
     "lint-css": "stylelint src/**/*.css src/**/*.scss --fix",
-    "lint": "npm run lint-js && npm run lint-css",
-    "prepare": "husky install"
+    "lint": "yarn run lint-ts && yarn run lint-css",
+    "prepare": "husky install",
+    "ci:build": "yarn run build",
+    "ci:lint": "yarn run lint",
+    "ci:test": "yarn run test"
   },
   "eslintConfig": {
     "extends": [

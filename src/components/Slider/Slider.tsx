@@ -23,8 +23,7 @@ export const Slider = () => {
       API.getMoviesList(MOVIE_TYPE.popular, { params })
         .then(({ data }) => {
           setMovieItems(data.results.slice(1, 4));
-        })
-        .catch((error) => console.log(error));
+        });
     };
     getMovies();
   }, []);

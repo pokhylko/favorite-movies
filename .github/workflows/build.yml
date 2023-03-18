@@ -2,30 +2,24 @@ name: build
 
 on:
   push:
-    paths-ignore:
-      - '*.md'
-    branches:
-      - main
+    branches: [ 'master' ]
   pull_request:
-    paths-ignore:
-      - '*.md'
-    branches:
-      - main
+    branches: [ 'master' ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup `node 16.x`
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-      - name: Run `npm install`
-        run: npm install
+      - name: Run `yarn install`
+        run: yarn install
       - name: Build
-        run: npm run ci:build
+        run: yarn run ci:build
       - name: Lint
-        run: npm run ci:lint
+        run: yarn run ci:lint
       - name: Test
-        run: npm run ci:test
+        run: yarn run ci:test
