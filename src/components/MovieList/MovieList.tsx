@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import { MovieCard } from '../MovieCard';
 
 import { Movie } from '../../types';
 
@@ -11,6 +8,7 @@ import { API, CATEGORY } from '../../api/api';
 import styles from './MovieList.module.scss';
 
 export const MovieList = ({ category, type, id }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -44,20 +42,6 @@ export const MovieList = ({ category, type, id }) => {
 
   return (
     <div className={styles.movie_list}>
-      <Swiper
-        grabCursor
-        spaceBetween={10}
-        slidesPerView="auto"
-      >
-        {
-                    items.map((item, i) => (
-                      // eslint-disable-next-line react/no-array-index-key
-                      <SwiperSlide key={i}>
-                        <MovieCard item={item} category={category} />
-                      </SwiperSlide>
-                    ))
-                }
-      </Swiper>
     </div>
   );
 };
