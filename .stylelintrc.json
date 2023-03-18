@@ -1,9 +1,0 @@
-{
-  "extends": "stylelint-config-standard",
-  "rules": {
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "forward", "use"]
-    }],
-    "no-descending-specificity": null
-  }
-}

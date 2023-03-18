@@ -24,11 +24,11 @@ export const Slide = ({ isActive, item }) => {
       const videoSrc = `https://www.youtube.com/embed/${videos.results[0].key}`;
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      modal.querySelector('.modal-content > iframe').setAttribute('src', videoSrc);
+      modal.querySelector(`${styles.modal_content} > iframe`).setAttribute('src', videoSrc);
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      modal.querySelector('.modal-content').innerHTML = 'No trailer';
+      modal.querySelector(styles.modal_content).innerHTML = 'No trailer';
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
