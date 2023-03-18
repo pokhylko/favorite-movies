@@ -1,0 +1,11 @@
+@use "../../styles" as *;
+
+.input {
+  border: 0;
+  background-color: $black-color;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: $border-radius;
+  color: $text-color;
+  font-family: $main-font;
+}

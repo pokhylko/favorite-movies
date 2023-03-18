@@ -1,0 +1,26 @@
+@use '../../styles' as *;
+
+.modal {
+  @include flex(center, center);
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background-color: rgba($color: $black-color, $alpha: 40%);
+  opacity: 0;
+  visibility: hidden;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+
+    .modal_content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
