@@ -10,7 +10,7 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background-color: rgba($color: $black-color, $alpha: 0.4);
+  background-color: rgba($color: $black-color, $alpha: 40%);
   opacity: 0;
   visibility: hidden;
 
@@ -18,7 +18,7 @@
     opacity: 1;
     visibility: visible;
 
-    .modal-content {
+    .modal_content {
       opacity: 1;
       transform: translateY(0);
     }

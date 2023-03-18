@@ -1,6 +1,6 @@
 @use '../../../../styles' as *;
 
-.modal-content {
+.modal_content {
   padding: 2rem;
   background-color: $bg-color;
   width: 50%;
@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.modal-content__close {
+.modal_content__close {
   position: absolute;
   top: 5px;
   right: 5px;
