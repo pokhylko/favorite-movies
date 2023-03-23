@@ -1,14 +1,14 @@
-import React from 'react';
+import {FC} from "react";
 
-import { IconProps } from '../../types';
+import {IconProps} from '../../types';
 
-export const PlayIcon: React.FC<IconProps> = ({
-  width = 24,
-  height = width || 24,
-  className = '',
-  fillClassName = '',
-  fillColor = '#000',
-}) => (
+export const PlayIcon: FC<IconProps> = ({
+                                            width = 24,
+                                            height = width || 24,
+                                            className = '',
+                                            fillClassName = '',
+                                            fillColor = '#000',
+                                        }) => (
     <svg
         width={width}
         height={height}

@@ -1,19 +1,18 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
-import { PageHeader } from '../components/PageHeader';
-import { MovieGrid } from '../components/MovieGrid';
+import {PageHeader} from '../components/PageHeader';
+import {MovieGrid} from '../components/MovieGrid';
 
-import { CATEGORY } from '../api/api';
+import {CATEGORY} from '../api/api';
 
 type CatalogParams = {
-  category: keyof typeof CATEGORY;
+    category: keyof typeof CATEGORY;
 };
 
 export const Catalog = () => {
-  const { category } = useParams<CatalogParams>();
+    const {category} = useParams<CatalogParams>();
 
-  return (
+    return (
         <>
             <PageHeader>
                 {category === CATEGORY.movie ? 'Movies' : 'TV Series'}
@@ -26,5 +25,5 @@ export const Catalog = () => {
                 </div>
             )}
         </>
-  );
+    );
 };

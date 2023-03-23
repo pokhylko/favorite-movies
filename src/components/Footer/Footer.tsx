@@ -1,16 +1,15 @@
-import React from 'react';
 import cn from 'classnames';
 
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-import { ReactComponent as Logo } from '../../images/logo.svg';
+import {ReactComponent as Logo} from '../../images/logo.svg';
 
 import bg from '../../images/footer-bg.jpg';
 
 import style from './Footer.module.scss';
 
 export const Footer = () => (
-    <div className={style.footer} style={{ backgroundImage: `url(${bg})` }}>
+    <div className={style.footer} style={{backgroundImage: `url(${bg})`}}>
         <div className={cn(style.footer__content, 'container')}>
             <div className={style.footer__logo}>
                 <Link to="/">

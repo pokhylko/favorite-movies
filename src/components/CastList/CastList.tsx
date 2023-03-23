@@ -1,31 +1,36 @@
-import React, { FC, useEffect, useState } from 'react';
+import {FC, useEffect, useState} from 'react';
 
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
-import { API, ICategory } from '../../api/api';
+import {API, ICategory} from '../../api/api';
 
 import styles from './CastList.module.scss';
 
 interface Props {
-  id: number;
+    id: number;
 }
 
-export const CastList: FC<Props> = ({ id }) => {
-  const { category } = useParams<{ category?: keyof ICategory }>();
+export const CastList: FC<Props> = ({id}) => {
+    const {category} = useParams<{ category?: keyof ICategory }>();
 
-  const [casts, setCasts] = useState([]);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [casts, setCasts] = useState([]);
 
-  useEffect(() => {
-    if (category) {
-      API.credits(category, id)
-        .then((response) => {
-          console.log('credits', response);
-          // setCasts(response.cast.slice(0, 5));
-        })
-        .catch((error) => console.log(error));
-    }
-  }, [category, id]);
-  return (
+    useEffect(() => {
+        if (category) {
+            const getCredits = async () => {
+                const response = await API.credits(category, id)
+                // setCasts(response.cast.slice(0, 5));
+                // eslint-disable-next-line no-console
+                console.log('credits', response);
+            }
+
+            getCredits();
+        }
+    }, [category, id]);
+    return (
         <div className={styles.casts}>
             {casts.map((item, i) => (
                 // eslint-disable-next-line react/no-array-index-key
@@ -39,12 +44,12 @@ export const CastList: FC<Props> = ({ id }) => {
                         // 		item.profile_path
                         // 	)})`,
                         // }}
-                    ></div>
+                    />
                     {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                     {/* @ts-ignore */}
                     <p className={styles.casts__item__name}>{item.name}</p>
                 </div>
             ))}
         </div>
-  );
+    );
 };

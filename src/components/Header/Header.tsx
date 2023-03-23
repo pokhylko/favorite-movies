@@ -1,52 +1,52 @@
-import React, { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import {useEffect, useRef} from 'react';
+import {Link, useLocation} from 'react-router-dom';
 import cn from 'classnames';
 
-import { ReactComponent as Logo } from '../../images/logo.svg';
+import {ReactComponent as Logo} from '../../images/logo.svg';
 
 import styles from './Header.module.scss';
 
 const HEADER_NAV = [
-  {
-    display: 'Home',
-    path: '/',
-  },
-  {
-    display: 'Movies',
-    path: '/movie',
-  },
-  {
-    display: 'TV Series',
-    path: '/tv',
-  },
+    {
+        display: 'Home',
+        path: '/',
+    },
+    {
+        display: 'Movies',
+        path: '/movie',
+    },
+    {
+        display: 'TV Series',
+        path: '/tv',
+    },
 ];
 
 export const Header = () => {
-  const { pathname } = useLocation();
-  const headerRef = useRef<HTMLInputElement>(null);
+    const {pathname} = useLocation();
+    const headerRef = useRef<HTMLInputElement>(null);
 
-  const active = HEADER_NAV.findIndex((e) => e.path === pathname);
+    const active = HEADER_NAV.findIndex((e) => e.path === pathname);
 
-  useEffect(() => {
-    const shrinkHeader = () => {
-      if (
-        document.body.scrollTop > 100 ||
+    useEffect(() => {
+        const shrinkHeader = () => {
+            if (
+                document.body.scrollTop > 100 ||
                 document.documentElement.scrollTop > 100
-      ) {
-        headerRef.current?.classList.add(styles['header--shrink']);
-      } else {
-        headerRef.current?.classList.remove(styles['header--shrink']);
-      }
-    };
+            ) {
+                headerRef.current?.classList.add(styles['header--shrink']);
+            } else {
+                headerRef.current?.classList.remove(styles['header--shrink']);
+            }
+        };
 
-    window.addEventListener('scroll', shrinkHeader);
+        window.addEventListener('scroll', shrinkHeader);
 
-    return () => {
-      window.removeEventListener('scroll', shrinkHeader);
-    };
-  }, []);
+        return () => {
+            window.removeEventListener('scroll', shrinkHeader);
+        };
+    }, []);
 
-  return (
+    return (
         <div className={styles.header} ref={headerRef}>
             <div className={cn(styles.header__wrapper, 'container')}>
                 <Link to="/">
@@ -55,10 +55,10 @@ export const Header = () => {
 
                 <nav>
                     <ul className={styles.header__nav_list}>
-                        {HEADER_NAV.map(({ display, path }, i) => (
+                        {HEADER_NAV.map(({display, path}, i) => (
                             <li
                                 className={cn(styles.header__nav_item, {
-                                  [styles['header__nav_item--active']]: i === active,
+                                    [styles['header__nav_item--active']]: i === active,
                                 })}
                                 key={path}
                             >
@@ -69,5 +69,5 @@ export const Header = () => {
                 </nav>
             </div>
         </div>
-  );
+    );
 };

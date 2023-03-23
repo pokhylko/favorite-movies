@@ -1,30 +1,30 @@
-import React, { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {FC} from 'react';
+import {useNavigate} from 'react-router-dom';
 import cn from 'classnames';
 
-import { Button } from '../../../Button';
+import {Button} from '../../../Button';
 
-import { API_CONFIG } from '../../../../api/apiConfig';
+import {API_CONFIG} from '../../../../api/apiConfig';
 
-import { IMovie } from '../../../../types';
+import {IMovie} from '../../../../types';
 
 import styles from './Slide.module.scss';
 
 interface Props {
-  item: IMovie;
-  isActive: boolean;
+    item: IMovie;
+    isActive: boolean;
 }
 
-export const Slide: FC<Props> = ({ item, isActive }) => {
-  const navigate = useNavigate();
+export const Slide: FC<Props> = ({item, isActive}) => {
+    const navigate = useNavigate();
 
-  const setModalActive = () => {
-  };
+    const setModalActive = () => {
+    };
 
-  return (
+    return (
         <li
             className={cn(styles.slide, {
-              [styles['slide--active']]: isActive,
+                [styles['slide--active']]: isActive,
             })}
         >
             <img
@@ -56,5 +56,5 @@ export const Slide: FC<Props> = ({ item, isActive }) => {
                 </div>
             </div>
         </li>
-  );
+    );
 };

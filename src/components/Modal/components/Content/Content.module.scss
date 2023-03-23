@@ -1,6 +1,6 @@
 @use '../../../../styles' as *;
 
-.modal_content {
+.content {
   padding: 2rem;
   background-color: $bg-color;
   width: 50%;
@@ -8,16 +8,16 @@
   transform: translateY(-250px);
   transition: transform 0.6s ease, opacity 0.6s ease;
   position: relative;
-}
 
-.modal_content__close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 1.5rem;
-  cursor: pointer;
+  &__close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
 
-  &:hover {
-    color: $main-color;
+    &:hover {
+      color: $main-color;
+    }
   }
 }
