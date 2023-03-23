@@ -29,7 +29,10 @@ export const Header = () => {
 
   useEffect(() => {
     const shrinkHeader = () => {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      if (
+        document.body.scrollTop > 100 ||
+                document.documentElement.scrollTop > 100
+      ) {
         headerRef.current?.classList.add(styles['header--shrink']);
       } else {
         headerRef.current?.classList.remove(styles['header--shrink']);
@@ -44,27 +47,27 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className={styles.header} ref={headerRef}>
-      <div className={cn(styles.header__wrapper, 'container')}>
-        <Link to="/">
-          <Logo className={styles.header__logo} />
-        </Link>
+        <div className={styles.header} ref={headerRef}>
+            <div className={cn(styles.header__wrapper, 'container')}>
+                <Link to="/">
+                    <Logo className={styles.header__logo}/>
+                </Link>
 
-        <nav className={styles.header__nav}>
-          <ul className={styles.header__nav_list}>
-            {HEADER_NAV.map(({ display, path }, i) => (
-              <li
-                className={cn(styles.header__nav_item, {
-                  [styles['header__nav_item--active']]: i === active,
-                })}
-                key={path}
-              >
-                <Link to={path}>{display}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </div>
+                <nav>
+                    <ul className={styles.header__nav_list}>
+                        {HEADER_NAV.map(({ display, path }, i) => (
+                            <li
+                                className={cn(styles.header__nav_item, {
+                                  [styles['header__nav_item--active']]: i === active,
+                                })}
+                                key={path}
+                            >
+                                <Link to={path}>{display}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            </div>
+        </div>
   );
 };

@@ -2,72 +2,94 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { axiosClient } from './axiosClient';
 
-import { Movie } from '../types';
+import { IMovie, IMovieDetails, ITv, ITvDetails } from '../types';
 
-export const CATEGORY = {
+export interface ICategory {
+  movie: 'movie';
+  tv: 'tv';
+}
+
+export interface IMovieType {
+  upcoming: 'upcoming';
+  popular: 'popular';
+  top_rated: 'top_rated';
+}
+
+export interface ITvType {
+  popular: 'popular';
+  top_rated: 'top_rated';
+  on_the_air: 'on_the_air';
+}
+
+export const CATEGORY: ICategory = {
   movie: 'movie',
   tv: 'tv',
 };
 
-export const MOVIE_TYPE = {
+export const MOVIE_TYPE: IMovieType = {
   upcoming: 'upcoming',
   popular: 'popular',
   top_rated: 'top_rated',
 };
 
-export const TV_TYPE = {
+export const TV_TYPE: ITvType = {
   popular: 'popular',
   top_rated: 'top_rated',
   on_the_air: 'on_the_air',
 };
 
+export interface IMoviesResponse {
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface ITvsResponse {
+  page: number;
+  results: ITv[];
+  total_pages: number;
+  total_results: number;
+}
+
+export type IMovieDetailsResponse = IMovieDetails | ITvDetails;
+
+const responseBody = <T>(response: AxiosResponse<T>) => response.data;
+
+const request = {
+  get: <T>(url: string, config?: AxiosRequestConfig) =>
+    axiosClient.get<T>(url, config).then(responseBody),
+};
+
 export const API = {
   getMoviesList: (
-    type,
-    params: AxiosRequestConfig<{ page: number }> | undefined,
-  ): Promise<AxiosResponse<{ results: Movie[] }>> => {
-    const url = `movie/${MOVIE_TYPE[type]}`;
+    type: keyof IMovieType,
+    config?: AxiosRequestConfig<{ page: number }>,
+  ) => request.get<IMoviesResponse>(`movie/${type}`, config),
 
-    return axiosClient(url, params);
-  },
-  getTvList: (
-    type,
-    params: AxiosRequestConfig<Record<string, never>> | undefined,
-  ): Promise<AxiosResponse<{ results: Movie[] }>> => {
-    const url = `tv/${TV_TYPE[type]}`;
+  getTvList: (type: keyof ITvType, config?: AxiosRequestConfig) =>
+    request.get<ITvsResponse>(`tv/${type}`, config),
 
-    return axiosClient(url, params);
-  },
-  getVideos: (category, id): Promise<AxiosResponse<{ results: Movie[] }>> => {
-    const url = `${CATEGORY[category]}/${id}/videos`;
+  getVideos: (category: keyof ICategory, id: number) =>
+    request.get<IMoviesResponse>(`${category}/${id}/videos`),
 
-    return axiosClient(url, { params: {} });
-  },
   search: (
-    category,
-    params: AxiosRequestConfig<Record<string, never>> | undefined,
-  ): Promise<AxiosResponse<{ results: Movie[] }>> => {
-    const url = `search/${CATEGORY[category]}`;
+    category: keyof ICategory,
+    params?: AxiosRequestConfig<{
+      page?: number;
+      query: string;
+    }>,
+  ) => request.get<IMoviesResponse>(`search/${category}`, params),
 
-    return axiosClient(url, params);
-  },
   detail: (
-    category,
-    id,
-    params: AxiosRequestConfig<any> | undefined,
-  ): Promise<AxiosResponse<{ results: Movie[] }>> => {
-    const url = `${CATEGORY[category]}/${id}`;
+    category: keyof ICategory,
+    id: string,
+    config?: AxiosRequestConfig,
+  ) => request.get<IMovieDetailsResponse>(`${category}/${id}`, config),
 
-    return axiosClient(url, params);
-  },
-  credits: (category, id): Promise<AxiosResponse<{ results: Movie[] }>> => {
-    const url = `${CATEGORY[category]}/${id}/credits`;
+  credits: (category: keyof ICategory, id: number) =>
+    request.get<IMoviesResponse>(`${category}/${id}/credits`),
 
-    return axiosClient(url, { params: {} });
-  },
-  similar: (category, id) => {
-    const url = `${CATEGORY[category]}/${id}/similar`;
-
-    return axiosClient(url, { params: {} });
-  },
+  similar: (category: keyof ICategory, id: number) =>
+    request.get<IMoviesResponse>(`${category}/${id}/similar`),
 };

@@ -1,8 +1,15 @@
-import React, { useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 
 import styles from './Video.module.scss';
 
-export const Video = ({ item }) => {
+interface Props {
+  item: {
+    name: string;
+    key: string;
+  };
+}
+
+export const Video: FC<Props> = ({ item }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -13,17 +20,16 @@ export const Video = ({ item }) => {
   }, []);
 
   return (
-    <div className={styles.video}>
-      <div className={styles.video__title}>
-        <h2>{item.name}</h2>
-      </div>
-      <iframe
-        src={`https://www.youtube.com/embed/${item.key}`}
-        ref={iframeRef}
-        width="100%"
-        title="video"
-      >
-      </iframe>
-    </div>
+        <div className={styles.video}>
+            <div className={styles.video__title}>
+                <h2>{item.name}</h2>
+            </div>
+            <iframe
+                src={`https://www.youtube.com/embed/${item.key}`}
+                ref={iframeRef}
+                width="100%"
+                title="video"
+            ></iframe>
+        </div>
   );
 };

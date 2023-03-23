@@ -6,22 +6,10 @@ import { Catalog } from '../pages/Catalog';
 import { Detail } from '../pages/Detail';
 
 export const Routing = () => (
-  <Routes>
-    <Route
-      path="/:category/search/:keyword"
-      element={<Catalog />}
-    />
-    <Route
-      path="/:category/:id"
-      element={<Detail />}
-    />
-    <Route
-      path="/:category"
-      element={<Catalog />}
-    />
-    <Route
-      path="/"
-      element={<Home />}
-    />
-  </Routes>
+    <Routes>
+        <Route path="/:category/search/:keyword" element={<Catalog/>}/>
+        <Route path="/:category/:id" element={<Detail/>}/>
+        <Route path="/:category" element={<Catalog/>}/>
+        <Route path="/" element={<Home/>}/>
+    </Routes>
 );

@@ -8,9 +8,9 @@ import { Routing } from './routes/Routes';
 import './App.scss';
 
 export const App = () => (
-  <BrowserRouter>
-    <Header />
-    <Routing />
-    <Footer />
-  </BrowserRouter>
+    <BrowserRouter>
+        <Header/>
+        <Routing/>
+        <Footer/>
+    </BrowserRouter>
 );

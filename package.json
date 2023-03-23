@@ -19,9 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint-ts": "eslint src/**/*.ts src/**/*.tsx",
-    "lint-css": "stylelint src/**/*.css src/**/*.scss --fix",
-    "lint": "yarn run lint-ts && yarn run lint-css",
+    "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx} --cache --max-warnings=0",
+    "lint:fix": "eslint src --fix",
     "prepare": "husky install",
     "ci:build": "yarn run build",
     "ci:lint": "yarn run lint",
@@ -34,10 +33,6 @@
     ]
   },
   "lint-staged": {
-    "*.{css,scss}": [
-      "stylelint",
-      "git add"
-    ],
     "*.{js,jsx}": [
       "eslint",
       "git add"
@@ -67,10 +62,12 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-router-dom": "^5.3.3",
     "@types/sass": "^1.45.0",
-    "@typescript-eslint/parser": "^5.55.0",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
     "eslint": "^8.36.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
@@ -79,8 +76,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "sass": "^1.59.3",
-    "stylelint": "^15.3.0",
-    "stylelint-config-standard": "^30.0.1",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "typescript-plugin-css-modules": "^5.0.0"
   }
 }

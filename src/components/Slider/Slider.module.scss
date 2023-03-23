@@ -1,5 +1,21 @@
 @use "../../styles" as *;
 
-.slider {
-  margin-bottom: 3rem;
+.swiper-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.swiper-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.swiper-list.is-swiping {
+  transition: none;
 }

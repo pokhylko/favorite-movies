@@ -1,22 +1,26 @@
 @use '../../../../styles' as *;
 
-.slide {
-  padding: 9rem 0;
+.swiper-img {
   width: 100%;
+  height: 100vh;
+  user-select: none;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
   position: relative;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 
   &::before {
-    @include overlay();
-
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   &::after {
@@ -26,7 +30,7 @@
     left: 0;
     width: 100%;
     height: 100px;
-    background-image: linear-gradient(to top, $bg-color, rgba($black-color, 0));
+    background-image: linear-gradient(to top, #0f0f0f, rgba(0, 0, 0, 0));
   }
 
   &--active > .slide__content > .slide__content_poster {
@@ -59,8 +63,12 @@
   &__content {
     @include flex(center, space-between);
 
-    gap: 10rem;
-    position: relative;
+    padding: 9rem 0;
+    gap: 4rem;
+    position: absolute;
+    top: calc(50% + 4rem);
+    transform: translateY(-50%);
+    z-index: 1;
   }
 
   &__content_info {
@@ -94,6 +102,7 @@
 
   &__content_poster {
     position: relative;
+    padding: 0 3rem;
   }
 
   &__image {
