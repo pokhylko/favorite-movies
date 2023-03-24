@@ -24,12 +24,25 @@
     "prepare": "husky install",
     "ci:build": "yarn run build",
     "ci:lint": "yarn run lint",
-    "ci:test": "yarn run test"
+    "ci:test": "yarn run test",
+    "storybook": "storybook dev -p 6006 -s public",
+    "build-storybook": "build-storybook",
+    "test-storybook": "test-storybook"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "lint-staged": {
@@ -52,6 +65,16 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
+    "@storybook/addon-actions": "^7.0.0-rc.7",
+    "@storybook/addon-essentials": "^7.0.0-rc.7",
+    "@storybook/addon-interactions": "^7.0.0-rc.7",
+    "@storybook/addon-links": "^7.0.0-rc.7",
+    "@storybook/addon-mdx-gfm": "^7.0.0-rc.7",
+    "@storybook/node-logger": "^7.0.0-rc.7",
+    "@storybook/preset-create-react-app": "^7.0.0-rc.7",
+    "@storybook/react": "^7.0.0-rc.7",
+    "@storybook/react-webpack5": "^7.0.0-rc.7",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "@testing-library/dom": "^9.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -66,6 +89,7 @@
     "@types/sass": "^1.45.0",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.36.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -78,8 +102,11 @@
     "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
+    "prop-types": "^15.8.1",
     "sass": "^1.59.3",
+    "storybook": "^7.0.0-rc.7",
     "typescript": "^5.0.2",
-    "typescript-plugin-css-modules": "^5.0.0"
+    "typescript-plugin-css-modules": "^5.0.0",
+    "webpack": "^5.76.3"
   }
 }
