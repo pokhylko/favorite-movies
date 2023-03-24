@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import './Button.scss';
 
-interface Props {
+export interface Props {
     onClick: () => void | Promise<void>;
     children: ReactNode;
     size?: 'default' | 'small';
@@ -28,7 +28,6 @@ export const Button: FC<Props> = ({
             className,
         )}
         type="button"
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onClick={onClick}
     >
         {children}

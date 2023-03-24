@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 
-import {Slider} from '../components/Slider';
+import {Slider} from '../../components/Slider';
 
-import {API, MOVIE_TYPE} from "../api/api";
+import {API, MOVIE_TYPE} from "../../api/api";
 
-import {IMovie} from "../types";
+import {IMovie} from "../../types";
 
 export const Home = () => {
     const [movieItems, setMovieItems] = useState<IMovie[]>([]);
