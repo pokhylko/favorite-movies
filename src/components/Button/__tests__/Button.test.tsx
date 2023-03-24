@@ -6,18 +6,18 @@ describe('Button component', () => {
     it('should render correctly with default props', () => {
         const onClick = jest.fn();
         const {getByText} = render(<Button onClick={onClick}>Click me</Button>);
-        const buttonElement = getByText('Click me');
+        const buttonEl = getByText('Click me');
 
-        expect(buttonElement).toBeInTheDocument();
-        expect(buttonElement).toHaveClass('button--primary');
+        expect(buttonEl).toBeInTheDocument();
+        expect(buttonEl).toHaveClass('button--primary');
     });
 
     it('should handle click events', () => {
         const onClick = jest.fn();
         const {getByText} = render(<Button onClick={onClick}>Click me</Button>);
-        const buttonElement = getByText('Click me');
+        const buttonEl = getByText('Click me');
 
-        fireEvent.click(buttonElement);
+        fireEvent.click(buttonEl);
         expect(onClick).toHaveBeenCalledTimes(1);
     });
 });
