@@ -2,7 +2,7 @@ import {AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import {axiosClient} from './axiosClient';
 
-import {IMovie, IMovieDetails, ITv, ITvDetails} from '../types';
+import {ICast, IMovie, IMovieDetails, ITv, ITvDetails} from '../types';
 
 export interface ICategory {
     movie: 'movie';
@@ -52,6 +52,12 @@ export interface ITvsResponse {
     total_results: number;
 }
 
+export interface ICreditsResponse {
+    id: number;
+    cast: ICast[];
+    crew: [];
+}
+
 export type IMovieDetailsResponse = IMovieDetails | ITvDetails;
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data;
@@ -75,11 +81,11 @@ export const API = {
 
     search: (
         category: keyof ICategory,
-        params?: AxiosRequestConfig<{
+        config?: AxiosRequestConfig<{
             page?: number;
             query: string;
         }>,
-    ) => request.get<IMoviesResponse>(`search/${category}`, params),
+    ) => request.get<IMoviesResponse>(`search/${category}`, config),
 
     detail: (
         category: keyof ICategory,
@@ -87,8 +93,11 @@ export const API = {
         config?: AxiosRequestConfig,
     ) => request.get<IMovieDetailsResponse>(`${category}/${id}`, config),
 
-    credits: (category: keyof ICategory, id: number) =>
-        request.get<IMoviesResponse>(`${category}/${id}/credits`),
+    credits: (
+        category: keyof ICategory,
+        id: number,
+        config = {params: {}}
+    ) => request.get<ICreditsResponse>(`${category}/${id}/credits`, config),
 
     similar: (category: keyof ICategory, id: number) =>
         request.get<IMoviesResponse>(`${category}/${id}/similar`),
