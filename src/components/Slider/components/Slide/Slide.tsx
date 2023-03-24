@@ -10,7 +10,7 @@ import {IMovie} from '../../../../types';
 
 import styles from './Slide.module.scss';
 
-interface Props {
+export interface Props {
     item: IMovie;
     isActive: boolean;
 }
@@ -46,13 +46,6 @@ export const Slide: FC<Props> = ({item, isActive}) => {
                             Watch trailer
                         </Button>
                     </div>
-                </div>
-                <div className={styles.slide__content_poster}>
-                    <img
-                        className={styles.slide__image}
-                        src={API_CONFIG.w500Image(item.poster_path)}
-                        alt={item.title}
-                    />
                 </div>
             </div>
         </li>

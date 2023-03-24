@@ -1,9 +1,7 @@
-import {MouseEvent, TouchEvent, useEffect, useRef, useState} from 'react';
+import {FC, MouseEvent, TouchEvent, useRef, useState} from 'react';
 import cn from 'classnames';
 
 import {Slide} from './components/Slide';
-
-import {API, MOVIE_TYPE} from '../../api/api';
 
 import {getRefValue, useStateRef} from '../../libs/hooks';
 import {getTouchEventData} from '../../libs/dom';
@@ -14,8 +12,11 @@ import styles from './Slider.module.scss';
 
 const MIN_SWIPE_REQUIRED = 40;
 
-export const Slider = () => {
-    const [movieItems, setMovieItems] = useState<IMovie[]>([]);
+export interface Props {
+    items: IMovie[]
+}
+
+export const Slider: FC<Props> = ({items}) => {
     const containerRef = useRef<HTMLUListElement>(null);
     const containerWidthRef = useRef(0);
     const minOffsetXRef = useRef(0);
@@ -103,18 +104,6 @@ export const Slider = () => {
         window.addEventListener('mouseup', onTouchEnd);
     };
 
-    useEffect(() => {
-        const getMovies = async () => {
-            const params = {page: 1};
-
-            const response = await API.getMoviesList(MOVIE_TYPE.popular, {params})
-
-            setMovieItems(response.results.slice(1, 4));
-        }
-
-        getMovies();
-    }, []);
-
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
@@ -129,7 +118,7 @@ export const Slider = () => {
                 ref={containerRef}
                 style={{transform: `translate3d(${offsetX}px, 0, 0)`}}
             >
-                {movieItems.map((item: IMovie, index) => (
+                {items.map((item, index) => (
                     <Slide key={item.id} item={item} isActive={currentIdx === index}/>
                 ))}
             </ul>

@@ -69,7 +69,8 @@
       }
     ],
     "react/function-component-definition": [
-      "error", {
+      "error",
+      {
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
@@ -78,12 +79,13 @@
       "error",
       {
         "devDependencies": [
-          "test.{ts,tsx}", // repos with a single test file
-          "test-*.{ts,tsx}", // repos with multiple top-level test files
-          "**/*{.,_}{test,spec}.{ts,tsx}", // tests where the extension or filename suffix denotes that it is a test
-          "**/setupTests.ts" // jest setup
+          "**/*.stories.*",
+          "**/.storybook/**/*.*",
+          "**/*.test.*",
+          "**/setupTests.ts"
         ],
-        "optionalDependencies": false
+        "optionalDependencies": false,
+        "peerDependencies": false
       }
     ]
   },

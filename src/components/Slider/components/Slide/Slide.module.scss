@@ -100,19 +100,6 @@
     transition: transform 0.5s ease, opacity 0.5s ease;
   }
 
-  &__content_poster {
-    position: relative;
-    padding: 0 3rem;
-  }
-
-  &__image {
-    width: 400px;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    transform: scale(0);
-    transition: transform 0.7s ease;
-  }
-
   &__buttons {
     display: flex;
     gap: 3rem;
