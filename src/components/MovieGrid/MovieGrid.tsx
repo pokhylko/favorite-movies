@@ -28,18 +28,12 @@ export const MovieGrid: FC<Props> = ({category}) => {
             let response: IMoviesResponse | ITvsResponse;
 
             if (!keyword) {
-                const params = {};
-
                 switch (category) {
                     case CATEGORY.movie:
-                        response = await API.getMoviesList(MOVIE_TYPE.upcoming, {
-                            params,
-                        });
+                        response = await API.getMoviesList(MOVIE_TYPE.upcoming);
                         break;
                     default:
-                        response = await API.getTvList(TV_TYPE.popular, {
-                            params,
-                        });
+                        response = await API.getTvList(TV_TYPE.popular);
                 }
             } else {
                 const params = {
@@ -91,19 +85,20 @@ export const MovieGrid: FC<Props> = ({category}) => {
             <div className="section mb-3">
                 <MovieSearch category={category} keyword={keyword}/>
             </div>
-            <div className={styles.movie_grid}>
-                {items &&
-                    items.map((item: IMovie | ITv) => (
+            {items && (
+                <div className={styles.movie_grid}>{
+                    items.map((item) => (
                         <MovieCard category={category} item={item} key={item.id}/>
-                    ))}
-            </div>
-            {page < totalPage ? (
+                    ))
+                }</div>
+            )}
+            {page < totalPage && (
                 <div className={styles.movie_grid__loadmore}>
                     <Button size="small" onClick={loadMore}>
                         Load more
                     </Button>
                 </div>
-            ) : null}
+            )}
         </>
     );
 };

@@ -22,10 +22,8 @@ export const Detail = () => {
 
     useEffect(() => {
         if (category && id) {
-            const params = {};
-
             const getDetail = async () => {
-                const response = await API.detail(category, id, {params});
+                const response = await API.detail(category, id);
 
                 setItem(response);
                 window.scrollTo(0, 0);
@@ -45,7 +43,7 @@ export const Detail = () => {
                             item.backdrop_path || item.poster_path,
                         )})`,
                     }}
-                 />
+                />
                 <div className={cn('mb-3', styles.movie_content, 'container')}>
                     <div className={styles.movie_content__poster}>
                         <div
@@ -55,7 +53,7 @@ export const Detail = () => {
                                     item.backdrop_path || item.poster_path,
                                 )})`,
                             }}
-                         />
+                        />
                     </div>
                     <div className={styles.movie_content__info}>
                         <h1 className="title">

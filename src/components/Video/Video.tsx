@@ -1,12 +1,11 @@
 import {FC, useEffect, useRef} from 'react';
 
+import {IVideo} from "../../types";
+
 import styles from './Video.module.scss';
 
 interface Props {
-    item: {
-        name: string;
-        key: string;
-    };
+    item: IVideo;
 }
 
 export const Video: FC<Props> = ({item}) => {

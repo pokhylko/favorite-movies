@@ -2,7 +2,7 @@ import {AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import {axiosClient} from './axiosClient';
 
-import {ICast, IMovie, IMovieDetails, ITv, ITvDetails} from '../types';
+import {ICast, IMovie, IMovieDetails, ITv, ITvDetails, IVideo} from '../types';
 
 export interface ICategory {
     movie: 'movie';
@@ -58,6 +58,11 @@ export interface ICreditsResponse {
     crew: [];
 }
 
+export interface IVideosResponse {
+    id: number;
+    results: IVideo[];
+}
+
 export type IMovieDetailsResponse = IMovieDetails | ITvDetails;
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data;
@@ -70,27 +75,27 @@ const request = {
 export const API = {
     getMoviesList: (
         type: keyof IMovieType,
-        config?: AxiosRequestConfig<{ page: number }>,
+        config: AxiosRequestConfig<{ page: number }> = {params: {}},
     ) => request.get<IMoviesResponse>(`movie/${type}`, config),
 
-    getTvList: (type: keyof ITvType, config?: AxiosRequestConfig) =>
+    getTvList: (type: keyof ITvType, config = {params: {}}) =>
         request.get<ITvsResponse>(`tv/${type}`, config),
 
-    getVideos: (category: keyof ICategory, id: number) =>
-        request.get<IMoviesResponse>(`${category}/${id}/videos`),
+    getVideos: (category: keyof ICategory, id: number, config = {params: {}}) =>
+        request.get<IVideosResponse>(`${category}/${id}/videos`, config),
 
     search: (
         category: keyof ICategory,
-        config?: AxiosRequestConfig<{
+        config: AxiosRequestConfig<{
             page?: number;
             query: string;
-        }>,
+        }> = {params: {}}
     ) => request.get<IMoviesResponse>(`search/${category}`, config),
 
     detail: (
         category: keyof ICategory,
         id: string,
-        config?: AxiosRequestConfig,
+        config = {params: {}}
     ) => request.get<IMovieDetailsResponse>(`${category}/${id}`, config),
 
     credits: (
@@ -99,6 +104,9 @@ export const API = {
         config = {params: {}}
     ) => request.get<ICreditsResponse>(`${category}/${id}/credits`, config),
 
-    similar: (category: keyof ICategory, id: number) =>
-        request.get<IMoviesResponse>(`${category}/${id}/similar`),
+    similar: (
+        category: keyof ICategory,
+        id: number,
+        config = {params: {}}
+    ) => request.get<IMoviesResponse>(`${category}/${id}/similar`, config),
 };

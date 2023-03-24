@@ -1,5 +1,7 @@
 import {FC, useEffect, useState} from 'react';
 
+import {MovieCard} from "../MovieCard";
+
 import {IMovie, ITv} from '../../types';
 
 import {API, CATEGORY, ICategory, IMoviesResponse, ITvsResponse} from '../../api/api';
@@ -13,9 +15,6 @@ interface Props {
 }
 
 export const MovieList: FC<Props> = ({category, type, id}) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [items, setItems] = useState<(IMovie | ITv)[]>([]);
 
     useEffect(() => {
@@ -40,5 +39,9 @@ export const MovieList: FC<Props> = ({category, type, id}) => {
         getList();
     }, [category, id, type]);
 
-    return <div className={styles.movie_list}/>;
+    return <div className={styles.movie_list}>{
+        items.map((item) => (
+            <MovieCard category={category} item={item} key={item.id}/>
+        ))
+    }</div>;
 };
