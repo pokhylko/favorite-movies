@@ -29,7 +29,7 @@ export const Slide: FC<Props> = ({item, isActive}) => {
     };
 
     // eslint-disable-next-line no-console
-    // console.log(item)
+    console.log(item)
 
     const genres = item.genre_ids.map(id => movieGenres.find(genre => genre.id === id)?.name).join(", ")
 
@@ -49,7 +49,10 @@ export const Slide: FC<Props> = ({item, isActive}) => {
             <div className={cn(styles.slide__content, 'container')}>
                 <div className={styles.slide__content_info}>
                     <h4 className={styles.slide__genres}>{genres}</h4>
-                    <Rating voteAverage={item.vote_average}/>
+                    <div className={styles.slide__rating}>
+                        <Rating voteAverage={item.vote_average}/>
+                        <div>{`${item.vote_average} (${item.vote_count})`}</div>
+                    </div>
                     <h2 className={styles.slide__title}>{item.title}</h2>
                     <p className={styles.slide__overview}>{item.overview}</p>
                     <div className={styles.slide__buttons}>

@@ -70,13 +70,19 @@
     flex-direction: column;
     flex: 1;
     min-width: 0;
-    gap: 3rem;
+    gap: 1.125rem;
     padding: 0 3rem;
     position: relative;
   }
 
   &__genres {
     font-size: 0.75rem;
+    font-weight: 400;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 1rem;
   }
 
   &__title {
@@ -86,8 +92,8 @@
   }
 
   &__overview {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 400;
   }
 
   &__buttons,
@@ -100,6 +106,6 @@
 
   &__buttons {
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
   }
 }
