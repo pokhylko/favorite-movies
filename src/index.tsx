@@ -1,5 +1,6 @@
-import {StrictMode} from 'react';
+import {StrictMode, Suspense} from 'react';
 import {createRoot} from 'react-dom/client';
+import {RecoilRoot} from "recoil";
 
 import {App} from './App';
 
@@ -8,6 +9,10 @@ const root = createRoot(rootElement as HTMLElement);
 
 root.render(
     <StrictMode>
-        <App/>
+        <RecoilRoot>
+            <Suspense fallback={<div>Loading...</div>}>
+                <App/>
+            </Suspense>
+        </RecoilRoot>
     </StrictMode>,
 );

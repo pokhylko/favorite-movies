@@ -2,7 +2,7 @@ import {AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import {axiosClient} from './axiosClient';
 
-import {ICast, IMovie, IMovieDetails, ITv, ITvDetails, IVideo} from '../types';
+import {ICast, IMovie, IMovieDetails, IMovieGenres, ITv, ITvDetails, IVideo} from '../types';
 
 export interface ICategory {
     movie: 'movie';
@@ -65,6 +65,10 @@ export interface IVideosResponse {
 
 export type IMovieDetailsResponse = IMovieDetails | ITvDetails;
 
+export interface IMovieGenresResponse {
+    genres: IMovieGenres[]
+}
+
 const responseBody = <T>(response: AxiosResponse<T>) => response.data;
 
 const request = {
@@ -109,4 +113,8 @@ export const API = {
         id: number,
         config = {params: {}}
     ) => request.get<IMoviesResponse>(`${category}/${id}/similar`, config),
+
+    getMovieGenres: (
+        config = {params: {}}
+    ) => request.get<IMovieGenresResponse>(`/genre/movie/list`, config),
 };

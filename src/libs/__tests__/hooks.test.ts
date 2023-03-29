@@ -1,4 +1,4 @@
-import {act, renderHook} from '@testing-library/react-hooks';
+import {act, renderHook} from '@testing-library/react';
 import {faker} from '@faker-js/faker';
 
 import {getRefValue, useStateRef} from '../hooks';

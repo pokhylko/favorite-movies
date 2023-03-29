@@ -1,14 +1,18 @@
 import {FC} from 'react';
 import {useNavigate} from 'react-router-dom';
 import cn from 'classnames';
+import {useRecoilValue} from "recoil";
 
 import {Button} from '../../../Button';
 
 import {API_CONFIG} from '../../../../api/apiConfig';
 
+import {genresMovieState} from "../../../../state";
+
 import {IMovie} from '../../../../types';
 
 import styles from './Slide.module.scss';
+import {Rating} from "../Rating";
 
 export interface Props {
     item: IMovie;
@@ -17,9 +21,17 @@ export interface Props {
 
 export const Slide: FC<Props> = ({item, isActive}) => {
     const navigate = useNavigate();
+    const movieGenres = useRecoilValue(genresMovieState);
+    // eslint-disable-next-line no-console
+    // console.log(movieGenres);
 
     const setModalActive = () => {
     };
+
+    // eslint-disable-next-line no-console
+    // console.log(item)
+
+    const genres = item.genre_ids.map(id => movieGenres.find(genre => genre.id === id)?.name).join(", ")
 
     return (
         <li
@@ -28,14 +40,16 @@ export const Slide: FC<Props> = ({item, isActive}) => {
             })}
         >
             <img
-                className={styles['swiper-img']}
-                src={API_CONFIG.originalImage(item.poster_path)}
+                className={styles.slide__img}
+                src={API_CONFIG.originalBackdropImage(item.backdrop_path)}
                 alt={item.title}
                 draggable={false}
             />
 
             <div className={cn(styles.slide__content, 'container')}>
                 <div className={styles.slide__content_info}>
+                    <h4 className={styles.slide__genres}>{genres}</h4>
+                    <Rating voteAverage={item.vote_average}/>
                     <h2 className={styles.slide__title}>{item.title}</h2>
                     <p className={styles.slide__overview}>{item.overview}</p>
                     <div className={styles.slide__buttons}>

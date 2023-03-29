@@ -36,7 +36,7 @@ export const CastList: FC<Props> = ({id}) => {
                     <div
                         className={styles.casts__item__img}
                         style={{
-                            backgroundImage: `url(${API_CONFIG.w500Image(
+                            backgroundImage: `url(${API_CONFIG.w500PosterImage(
                                 item.profile_path
                             )})`,
                         }}

@@ -194,7 +194,11 @@ export interface IVideo {
     "official": boolean,
     "published_at": Date,
     "id": string
+}
 
+export interface IMovieGenres {
+    id: number;
+    name: string;
 }
 
 export interface IconProps {

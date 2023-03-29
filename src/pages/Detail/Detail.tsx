@@ -39,7 +39,7 @@ export const Detail = () => {
                 <div
                     className={styles.banner}
                     style={{
-                        backgroundImage: `url(${API_CONFIG.originalImage(
+                        backgroundImage: `url(${API_CONFIG.originalPosterImage(
                             item.backdrop_path || item.poster_path,
                         )})`,
                     }}
@@ -49,7 +49,7 @@ export const Detail = () => {
                         <div
                             className={styles.movie_content__poster__img}
                             style={{
-                                backgroundImage: `url(${API_CONFIG.originalImage(
+                                backgroundImage: `url(${API_CONFIG.originalPosterImage(
                                     item.backdrop_path || item.poster_path,
                                 )})`,
                             }}

@@ -1,3 +1,4 @@
 /build
 /.yarn
 /.pnp.js
+/jest.config.js

@@ -10,7 +10,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "recoil": "^0.7.7"
   },
   "scripts": {
     "predeploy": "yarn run build",
@@ -27,7 +28,8 @@
     "ci:test": "yarn run test",
     "storybook": "storybook dev -p 6006 -s public",
     "build-storybook": "build-storybook",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "recoil": "facebookexperimental/Recoil.git#nightly"
   },
   "eslintConfig": {
     "extends": [
@@ -108,5 +110,10 @@
     "typescript": "^5.0.2",
     "typescript-plugin-css-modules": "^5.0.0",
     "webpack": "^5.76.3"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   }
 }
