@@ -1,0 +1,17 @@
+@use '../../styles' as *;
+
+.section {
+  padding: 0 2rem;
+
+  &--small-space {
+    margin-bottom: 1rem;
+  }
+
+  &--medium-space {
+    margin-bottom: 2rem;
+  }
+
+  &--large-space {
+    margin-bottom: 3rem;
+  }
+}
