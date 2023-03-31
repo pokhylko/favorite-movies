@@ -1,0 +1,26 @@
+@use '../../styles' as *;
+
+.container {
+  max-width: 1660px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &__title {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $white-color;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      display: block;
+      height: 1.5px;
+      width: 60px;
+      background: $main-color;
+    }
+  }
+}
