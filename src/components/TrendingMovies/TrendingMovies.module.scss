@@ -1,0 +1,12 @@
+@use '../../styles' as *;
+
+.trending_movies {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  &__img {
+    flex: 1;
+  }
+}
