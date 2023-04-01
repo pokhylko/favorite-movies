@@ -1,4 +1,4 @@
-import {atom, selector} from "recoil";
+import {atom, RecoilState, selector} from "recoil";
 
 import {API, MOVIE_TYPE} from "../api/api";
 
@@ -12,7 +12,7 @@ export const popularMovies = selector<IMovie[]>({
 
             const response = await API.getMoviesList(MOVIE_TYPE.popular, {params})
 
-            return response.results.slice(1, 4);
+            return response.results;
         } catch (error) {
             console.error(`popularMovies -> getMoviesList() ERROR: \n${error}`);
             return [];
@@ -20,7 +20,7 @@ export const popularMovies = selector<IMovie[]>({
     }
 });
 
-export const popularMoviesState = atom<IMovie[]>({
-    key: "userListState",
+export const popularMoviesState: RecoilState<IMovie[]> = atom({
+    key: "popularMoviesState",
     default: popularMovies
 });

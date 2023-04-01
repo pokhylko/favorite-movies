@@ -2,6 +2,8 @@ import {useEffect, useRef} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import cn from 'classnames';
 
+import {Container} from "../Container";
+
 import {ReactComponent as Logo} from '../../images/logo.svg';
 
 import styles from './Header.module.scss';
@@ -48,7 +50,7 @@ export const Header = () => {
 
     return (
         <div className={styles.header} ref={headerRef}>
-            <div className={cn(styles.header__wrapper, 'container')}>
+            <Container className={styles.header__wrapper}>
                 <Link to="/">
                     <Logo className={styles.header__logo}/>
                 </Link>
@@ -67,7 +69,7 @@ export const Header = () => {
                         ))}
                     </ul>
                 </nav>
-            </div>
+            </Container>
         </div>
     );
 };

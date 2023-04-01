@@ -2,6 +2,8 @@ import {useParams} from 'react-router-dom';
 
 import {PageHeader} from '../../components/PageHeader';
 import {MovieGrid} from '../../components/MovieGrid';
+import {Container} from "../../components/Container";
+import {Section} from "../../components/Section";
 
 import {CATEGORY} from '../../api/api';
 
@@ -17,12 +19,13 @@ export const Catalog = () => {
             <PageHeader>
                 {category === CATEGORY.movie ? 'Movies' : 'TV Series'}
             </PageHeader>
+
             {category && (
-                <div className="container">
-                    <div className="section mb-3">
+                <Section bottomSpace="large">
+                    <Container>
                         <MovieGrid category={category || 'movie'}/>
-                    </div>
-                </div>
+                    </Container>
+                </Section>
             )}
         </>
     );

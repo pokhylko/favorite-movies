@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 import {MovieCard} from '../MovieCard';
 import {MovieSearch} from '../MovieSearch';
 import {Button} from '../Button';
+import {Section} from "../Section";
 
 import {API, CATEGORY, IMoviesResponse, ITvsResponse, MOVIE_TYPE, TV_TYPE} from '../../api/api';
 
@@ -82,9 +83,9 @@ export const MovieGrid: FC<Props> = ({category}) => {
 
     return (
         <>
-            <div className="section mb-3">
+            <Section bottomSpace="large">
                 <MovieSearch category={category} keyword={keyword}/>
-            </div>
+            </Section>
             {items && (
                 <div className={styles.movie_grid}>{
                     items.map((item) => (

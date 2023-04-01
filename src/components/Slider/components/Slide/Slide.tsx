@@ -4,6 +4,8 @@ import cn from 'classnames';
 import {useRecoilValue} from "recoil";
 
 import {Button} from '../../../Button';
+import {Rating} from "../Rating";
+import {Container} from "../../../Container";
 
 import {API_CONFIG} from '../../../../api/apiConfig';
 
@@ -12,7 +14,6 @@ import {genresMovieState} from "../../../../state";
 import {IMovie} from '../../../../types';
 
 import styles from './Slide.module.scss';
-import {Rating} from "../Rating";
 
 export interface Props {
     item: IMovie;
@@ -46,7 +47,7 @@ export const Slide: FC<Props> = ({item, isActive}) => {
                 draggable={false}
             />
 
-            <div className={cn(styles.slide__content, 'container')}>
+            <Container className={styles.slide__content}>
                 <div className={styles.slide__content_info}>
                     <h4 className={styles.slide__genres}>{genres}</h4>
                     <div className={styles.slide__rating}>
@@ -64,7 +65,7 @@ export const Slide: FC<Props> = ({item, isActive}) => {
                         </Button>
                     </div>
                 </div>
-            </div>
+            </Container>
         </li>
     );
 };
