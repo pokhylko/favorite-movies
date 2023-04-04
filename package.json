@@ -107,7 +107,7 @@
     "prop-types": "^15.8.1",
     "sass": "^1.59.3",
     "storybook": "^7.0.0-rc.7",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.3",
     "typescript-plugin-css-modules": "^5.0.0",
     "webpack": "^5.76.3"
   },
