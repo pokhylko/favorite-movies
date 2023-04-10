@@ -109,7 +109,7 @@
     "storybook": "^7.0.2",
     "typescript": "^5.0.3",
     "typescript-plugin-css-modules": "^5.0.0",
-    "webpack": "^5.76.3"
+    "webpack": "^5.78.0"
   },
   "jest": {
     "moduleNameMapper": {
