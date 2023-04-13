@@ -108,7 +108,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
+    "lint-staged": "^13.2.1",
     "prop-types": "^15.8.1",
     "sass": "^1.59.3",
     "storybook": "^7.0.2",
