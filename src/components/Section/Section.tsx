@@ -9,7 +9,11 @@ interface Props {
     children: ReactNode;
 }
 
-export const Section: FC<Props> = ({className, bottomSpace = null, children}) => <section
+export const Section: FC<Props> = ({
+                                       className,
+                                       bottomSpace = null,
+                                       children
+                                   }) => <section
     className={cn(styles.section, {
         [styles['section--small-space']]: bottomSpace === 'small',
         [styles['section--large-space']]: bottomSpace === 'large',

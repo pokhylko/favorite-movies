@@ -1,22 +1,24 @@
-import {FC, ReactNode} from 'react';
+import {FC, MouseEventHandler, ReactNode} from 'react';
 import cn from 'classnames';
 
 import './Button.scss';
 
 export interface Props {
-    onClick: () => void | Promise<void>;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
     children: ReactNode;
     size?: 'default' | 'small';
+    type?: "button" | "submit" | "reset";
     variant?: 'primary' | 'outline';
     className?: string;
 }
 
 export const Button: FC<Props> = ({
                                       children,
-                                      onClick,
                                       size = 'default',
+                                      type = 'button',
                                       variant = 'primary',
                                       className = '',
+                                      ...props
                                   }) => (
     <button
         className={cn(
@@ -27,8 +29,8 @@ export const Button: FC<Props> = ({
             },
             className,
         )}
-        type="button"
-        onClick={onClick}
+        type={type}
+        {...props}
     >
         {children}
     </button>
