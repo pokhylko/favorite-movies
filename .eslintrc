@@ -94,7 +94,8 @@
       {
         "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
       }
-    ]
+    ],
+    "react/button-has-type": "off"
   },
   "settings": {
     "react": {
