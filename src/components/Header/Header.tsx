@@ -67,6 +67,14 @@ export const Header = () => {
                                 <Link to={path}>{display}</Link>
                             </li>
                         ))}
+
+                        <li
+                            className={cn(styles.header__nav_item, {
+                                [styles['header__nav_item--active']]: pathname === '/login',
+                            })}
+                        >
+                            <Link to='/login'>Login</Link>
+                        </li>
                     </ul>
                 </nav>
             </Container>
