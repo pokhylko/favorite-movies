@@ -79,7 +79,7 @@
     "@storybook/addon-mdx-gfm": "^7.0.2",
     "@storybook/node-logger": "^7.0.0-rc.7",
     "@storybook/preset-create-react-app": "^7.0.5",
-    "@storybook/react": "^7.0.2",
+    "@storybook/react": "^7.0.6",
     "@storybook/react-webpack5": "^7.0.2",
     "@storybook/testing-library": "^0.1.0",
     "@testing-library/dom": "^9.0.1",
