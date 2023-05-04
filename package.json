@@ -110,7 +110,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prop-types": "^15.8.1",
-    "sass": "^1.62.0",
+    "sass": "^1.62.1",
     "storybook": "^7.0.7",
     "typescript": "^5.0.4",
     "typescript-plugin-css-modules": "^5.0.0",
