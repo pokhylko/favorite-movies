@@ -1,15 +1,11 @@
 import {FC} from 'react';
 import {useNavigate} from 'react-router-dom';
+import YouTube from "react-youtube";
 import cn from 'classnames';
-import {useRecoilValue} from "recoil";
 
 import {Button} from '../../../Button';
 import {Rating} from "../Rating";
 import {Container} from "../../../Container";
-
-import {API_CONFIG} from '../../../../api/apiConfig';
-
-import {genresMovieState} from "../../../../state";
 
 import {IMovie} from '../../../../types';
 
@@ -22,17 +18,11 @@ export interface Props {
 
 export const Slide: FC<Props> = ({item, isActive}) => {
     const navigate = useNavigate();
-    const movieGenres = useRecoilValue(genresMovieState);
-    // eslint-disable-next-line no-console
-    // console.log(movieGenres);
+    const videoId = item.trailer.replace("https://youtube.com/watch?v=", '')
+
 
     const setModalActive = () => {
     };
-
-    // eslint-disable-next-line no-console
-    console.log(item)
-
-    const genres = item.genre_ids.map(id => movieGenres.find(genre => genre.id === id)?.name).join(", ")
 
     return (
         <li
@@ -40,24 +30,34 @@ export const Slide: FC<Props> = ({item, isActive}) => {
                 [styles['slide--active']]: isActive,
             })}
         >
-            <img
-                className={styles.slide__img}
-                src={API_CONFIG.originalBackdropImage(item.backdrop_path)}
-                alt={item.title}
-                draggable={false}
+            <YouTube
+                className={styles.slide__video}
+                iframeClassName={styles.slide__iframe}
+                videoId={videoId}
+                opts={{
+                    playerVars: {
+                        autoplay: 1,
+                        controls: 0,
+                        rel: 0,
+                        showinfo: 0,
+                        mute: 1,
+                        loop: 1
+                    },
+                }}
             />
 
             <Container className={styles.slide__content}>
                 <div className={styles.slide__content_info}>
-                    <h4 className={styles.slide__genres}>{genres}</h4>
+                    <div className={styles.slide__genres}>{item.genres.map(genre => <span
+                        key={genre}>{genre}</span>)}</div>
                     <div className={styles.slide__rating}>
-                        <Rating voteAverage={item.vote_average}/>
-                        <div>{`${item.vote_average} (${item.vote_count})`}</div>
+                        <Rating rating={item.rating}/>
+                        <div>{`${item.rating} (${item.votes})`}</div>
                     </div>
                     <h2 className={styles.slide__title}>{item.title}</h2>
                     <p className={styles.slide__overview}>{item.overview}</p>
                     <div className={styles.slide__buttons}>
-                        <Button onClick={() => navigate(`/movie/${item.id}`)}>
+                        <Button onClick={() => navigate(`/movie/${item.ids.trakt}`)}>
                             Watch now
                         </Button>
                         <Button variant="outline" onClick={setModalActive}>

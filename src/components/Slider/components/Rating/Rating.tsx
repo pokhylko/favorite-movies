@@ -15,7 +15,7 @@ import {
 } from "../../../Icons";
 
 export interface Props {
-    voteAverage: number;
+    rating: number;
 }
 
 type Grade = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
@@ -34,17 +34,17 @@ const STAR_ICONS = {
     10: <Star10Icon/>
 }
 
-export const Rating: FC<Props> = ({voteAverage}) => {
+export const Rating: FC<Props> = ({rating}) => {
     const [starRating, setStarRating] = useState<Grade[]>([]);
 
     useEffect(() => {
-        const [intRating, decRating] = voteAverage.toString().split('.')
+        const [intRating, decRating] = rating.toString().split('.')
         const ratingArray: Grade[] = [];
 
         for (let i = 1; i <= 10; i += 1) {
-            if (voteAverage >= i) {
+            if (rating >= i) {
                 ratingArray.push(10);
-            } else if (+intRating + 1 === i && voteAverage <= i) {
+            } else if (+intRating + 1 === i && rating <= i) {
                 ratingArray.push(+(decRating[0]) as Grade)
             } else {
                 ratingArray.push(0)
@@ -52,10 +52,10 @@ export const Rating: FC<Props> = ({voteAverage}) => {
         }
 
         setStarRating(ratingArray);
-    }, [voteAverage]);
+    }, [rating]);
 
     return (
         // eslint-disable-next-line react/no-array-index-key
-        <div>{starRating.map((rating, index) => <Fragment key={index}>{STAR_ICONS[rating]}</Fragment>)}</div>
+        <div>{starRating.map((star, index) => <Fragment key={index}>{STAR_ICONS[star]}</Fragment>)}</div>
     );
 };

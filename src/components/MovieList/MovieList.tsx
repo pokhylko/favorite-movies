@@ -41,7 +41,7 @@ export const MovieList: FC<Props> = ({category, type, id}) => {
 
     return <div className={styles.movie_list}>{
         items.map((item) => (
-            <MovieCard category={category} item={item} key={item.id}/>
+            <MovieCard category={category} item={item} key={item.ids.trakt}/>
         ))
     }</div>;
 };

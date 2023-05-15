@@ -19,7 +19,7 @@ interface Props {
 }
 
 export const MovieCard: FC<Props> = ({category, item}) => {
-    const link = `/${category}/${item.id}`;
+    const link = `/${category}/${item.ids.trakt}`;
     const moviePoster = item.poster_path || item.backdrop_path;
     const bg = API_CONFIG.w500PosterImage(moviePoster);
 

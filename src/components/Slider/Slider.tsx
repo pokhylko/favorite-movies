@@ -119,7 +119,7 @@ export const Slider: FC<Props> = ({items}) => {
                 style={{transform: `translate3d(${offsetX}px, 0, 0)`}}
             >
                 {items.map((item, index) => (
-                    <Slide key={item.id} item={item} isActive={currentIdx === index}/>
+                    <Slide key={item.ids.trakt} item={item} isActive={currentIdx === index}/>
                 ))}
             </ul>
         </div>

@@ -1,8 +1,13 @@
 export interface IMovie {
     adult: boolean;
     backdrop_path: string;
-    genre_ids: number[];
-    id: number;
+    genres: string[];
+    ids: {
+        trakt: number,
+        slug: string,
+        imdb: string,
+        tmdb: number
+    };
     original_language: string;
     original_title: string;
     overview: string;
@@ -11,15 +16,21 @@ export interface IMovie {
     release_date: string;
     title: string;
     video: boolean;
-    vote_average: number;
-    vote_count: number;
+    rating: number;
+    votes: number;
+    trailer: string
 }
 
 export interface ITv {
     backdrop_path: string;
     first_air_date: Date;
-    genre_ids: number[];
-    id: number;
+    genres: string[];
+    ids: {
+        trakt: number,
+        slug: string,
+        imdb: string,
+        tmdb: number
+    };
     name: string;
     origin_country: string[];
     original_language: string;
@@ -27,8 +38,8 @@ export interface ITv {
     overview: string;
     popularity: number;
     poster_path: string;
-    vote_average: number;
-    vote_count: number;
+    rating: number;
+    votes: number;
 }
 
 export interface IMovieDetails {
