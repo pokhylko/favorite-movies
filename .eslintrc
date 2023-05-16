@@ -90,10 +90,7 @@
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": [
-      "warn",
-      {
-        "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
-      }
+      "warn"
     ],
     "react/button-has-type": "off"
   },

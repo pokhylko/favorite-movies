@@ -71,19 +71,18 @@
     position: absolute;
     bottom: 2rem;
     z-index: 1;
-  }
-
-  &__content_info {
     display: flex;
     flex-direction: column;
     flex: 1;
+    max-width: 600px;
     min-width: 0;
     gap: 1.125rem;
     padding: 0 3rem;
-    position: relative;
   }
 
   &__genres {
+    display: flex;
+    gap: 0.5rem;
     font-size: 0.75rem;
     font-weight: 400;
   }
@@ -102,14 +101,6 @@
   &__overview {
     font-size: 1rem;
     font-weight: 400;
-  }
-
-  &__buttons,
-  &__title,
-  &__overview {
-    opacity: 0;
-    transform: translateY(-100px);
-    transition: transform 0.5s ease, opacity 0.5s ease;
   }
 
   &__buttons {

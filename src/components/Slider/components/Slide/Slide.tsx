@@ -5,7 +5,6 @@ import cn from 'classnames';
 
 import {Button} from '../../../Button';
 import {Rating} from "../Rating";
-import {Container} from "../../../Container";
 
 import {IMovie} from '../../../../types';
 
@@ -19,10 +18,6 @@ export interface Props {
 export const Slide: FC<Props> = ({item, isActive}) => {
     const navigate = useNavigate();
     const videoId = item.trailer.replace("https://youtube.com/watch?v=", '')
-
-
-    const setModalActive = () => {
-    };
 
     return (
         <li
@@ -46,26 +41,21 @@ export const Slide: FC<Props> = ({item, isActive}) => {
                 }}
             />
 
-            <Container className={styles.slide__content}>
-                <div className={styles.slide__content_info}>
-                    <div className={styles.slide__genres}>{item.genres.map(genre => <span
-                        key={genre}>{genre}</span>)}</div>
-                    <div className={styles.slide__rating}>
-                        <Rating rating={item.rating}/>
-                        <div>{`${item.rating} (${item.votes})`}</div>
-                    </div>
-                    <h2 className={styles.slide__title}>{item.title}</h2>
-                    <p className={styles.slide__overview}>{item.overview}</p>
-                    <div className={styles.slide__buttons}>
-                        <Button onClick={() => navigate(`/movie/${item.ids.trakt}`)}>
-                            Watch now
-                        </Button>
-                        <Button variant="outline" onClick={setModalActive}>
-                            Watch trailer
-                        </Button>
-                    </div>
+            <div className={styles.slide__content}>
+                <div className={styles.slide__genres}>{item.genres.map(genre => <span
+                    key={genre}>{genre}</span>)}</div>
+                <div className={styles.slide__rating}>
+                    <Rating rating={item.rating}/>
+                    <div>{`${item.rating} (${item.votes} votes)`}</div>
                 </div>
-            </Container>
+                <h2 className={styles.slide__title}>{item.title}</h2>
+                <p className={styles.slide__overview}>{item.overview}</p>
+                <div className={styles.slide__buttons}>
+                    <Button onClick={() => navigate(`/movie/${item.ids.trakt}`)}>
+                        Watch now
+                    </Button>
+                </div>
+            </div>
         </li>
     );
 };

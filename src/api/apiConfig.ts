@@ -1,6 +1,6 @@
 export const API_CONFIG = {
     baseUrl: 'https://api.trakt.tv',
-    apiKey: process.env.TRAKT_API_KEY ?? "",
+    apiKey: process.env.REACT_APP_TRAKT_API_KEY ?? "",
     originalPosterImage: (imgPath: string) =>
         `https://image.tmdb.org/t/p/original${imgPath}`,
     w500PosterImage: (imgPath: string) =>
