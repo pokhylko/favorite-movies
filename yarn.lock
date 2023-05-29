@@ -2500,12 +2500,12 @@
     prop-types "^15.7.2"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-mdx-gfm@^7.0.12":
-  version "7.0.12"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-mdx-gfm/-/addon-mdx-gfm-7.0.12.tgz#f5e209419e16c27d47e5ef588c5591d51d7d8998"
-  integrity sha512-shl4LVrwwjw9H0IB9VzrOjtuvA28SrOKMsvwj06skQgH9aHJMA2SmgPnQIBoQmgUM+x+6g2vaSz9Z82iAo8ESw==
+"@storybook/addon-mdx-gfm@^7.0.18":
+  version "7.0.18"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-mdx-gfm/-/addon-mdx-gfm-7.0.18.tgz#d9f1789ace26c19fe4c2ecb5917393afd1832b4c"
+  integrity sha512-mbCwEXlv21pLMVf6IHUG6lxaehYAGBh/MP/qCRmb2nXPRyrg5M9mCOSJibxgiSJQHyvhYZ6XX/gQ5DMtwsdatg==
   dependencies:
-    "@storybook/node-logger" "7.0.12"
+    "@storybook/node-logger" "7.0.18"
     remark-gfm "^3.0.1"
     ts-dedent "^2.0.0"
 
@@ -3205,17 +3205,7 @@
     npmlog "^5.0.1"
     pretty-hrtime "^1.0.3"
 
-"@storybook/node-logger@7.0.12":
-  version "7.0.12"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.0.12.tgz#f7e8f3ff6ac0f6500089430cab1236771ebeffe9"
-  integrity sha512-VL+NXzc9NuOP6/9alg4Sofz9kh8tmlo3p+UtCIYCHH088yCsB3XsNhkG9lF1C5EZVWcuHxc2u6MMF3ezOjvKfQ==
-  dependencies:
-    "@types/npmlog" "^4.1.2"
-    chalk "^4.1.0"
-    npmlog "^5.0.1"
-    pretty-hrtime "^1.0.3"
-
-"@storybook/node-logger@7.0.15", "@storybook/node-logger@^7.0.7":
+"@storybook/node-logger@7.0.15":
   version "7.0.15"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.0.15.tgz#cf4432646789af4d0c7a96933b1fd6512e4017ad"
   integrity sha512-h7kAbugjW4OqVIs5fd3Lme8+WBaEZYAULaNJ1zdvVpvWepG6iBaF/j8RlZdJzrPDdwQvZ2g9gVk5HySXpeXOjA==
@@ -3229,6 +3219,16 @@
   version "7.0.17"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.0.17.tgz#78e1ecacc5cba300eedd4bcbabefc5200f9d0708"
   integrity sha512-owq36J0/FOh6ey6eft/w+sAqDT55+SrHoJCaXELipAbXsqy7hBVKnJFw5awSsQO8ZGoVu3Uj/bA7T6FdU7OEHA==
+  dependencies:
+    "@types/npmlog" "^4.1.2"
+    chalk "^4.1.0"
+    npmlog "^5.0.1"
+    pretty-hrtime "^1.0.3"
+
+"@storybook/node-logger@7.0.18", "@storybook/node-logger@^7.0.7":
+  version "7.0.18"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.0.18.tgz#efed2e8b79964e7d999b64b0e99fa79f9356904e"
+  integrity sha512-cIeKEBvELtoVP/5UeQ01GJWZ7wM69/9Q+R5uOtNQBlwWFcCD6AVFWMRqq7ObMvdJG/okhXSF+sDetb+BF3zvdw==
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.1.0"
