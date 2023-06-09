@@ -1,7 +1,7 @@
 import {ChangeEvent, FC, useCallback, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {Button} from "@mui/material";
 
-import {Button} from '../Button';
 import {Input} from '../Input';
 
 import {CATEGORY} from '../../api/api';

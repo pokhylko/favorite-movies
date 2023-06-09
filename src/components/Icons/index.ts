@@ -1,4 +1,3 @@
-import {PlayIcon} from './PlayIcon';
 import {Star0Icon} from './Star0Icon';
 import {Star1Icon} from './Star1Icon';
 import {Star2Icon} from './Star2Icon';
@@ -12,7 +11,6 @@ import {Star9Icon} from './Star9Icon';
 import {Star10Icon} from './Star10Icon';
 
 export {
-    PlayIcon,
     Star0Icon,
     Star1Icon,
     Star2Icon,

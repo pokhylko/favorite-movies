@@ -2,8 +2,8 @@ import {FC} from "react";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import {Button} from "@mui/material";
 
-import {Button} from "../../Button";
 import {Input} from "../../Input";
 
 import styles from './Form.module.scss';

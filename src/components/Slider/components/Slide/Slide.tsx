@@ -2,8 +2,8 @@ import {FC} from 'react';
 import {useNavigate} from 'react-router-dom';
 import YouTube from "react-youtube";
 import cn from 'classnames';
+import {Button} from "@mui/material";
 
-import {Button} from '../../../Button';
 import {Rating} from "../Rating";
 
 import {IMovie} from '../../../../types';
@@ -51,7 +51,7 @@ export const Slide: FC<Props> = ({item, isActive}) => {
                 <h2 className={styles.slide__title}>{item.title}</h2>
                 <p className={styles.slide__overview}>{item.overview}</p>
                 <div className={styles.slide__buttons}>
-                    <Button onClick={() => navigate(`/movie/${item.ids.trakt}`)}>
+                    <Button variant="contained" size="large" onClick={() => navigate(`/movie/${item.ids.trakt}`)}>
                         Watch now
                     </Button>
                 </div>

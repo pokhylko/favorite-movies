@@ -1,9 +1,9 @@
 import {FC, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
+import {Button} from "@mui/material";
 
 import {MovieCard} from '../MovieCard';
 import {MovieSearch} from '../MovieSearch';
-import {Button} from '../Button';
 
 import {API, CATEGORY, IMoviesResponse, ITvsResponse, MOVIE_TYPE, TV_TYPE} from '../../api/api';
 

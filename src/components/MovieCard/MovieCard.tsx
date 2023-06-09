@@ -1,8 +1,7 @@
 import {FC} from 'react';
 import {Link} from 'react-router-dom';
-
-import {Button} from '../Button';
-import {PlayIcon} from '../Icons';
+import {Button} from "@mui/material";
+import {PlayArrowRounded as PlayArrowRoundedIcon} from '@mui/icons-material';
 
 import {IMovie, ITv} from '../../types';
 
@@ -31,9 +30,9 @@ export const MovieCard: FC<Props> = ({category, item}) => {
                     backgroundImage: `url(${moviePoster ? bg : noPoster})`,
                 }}
             >
-                <Button className={styles.movie_card__button} onClick={() => {
+                <Button onClick={() => {
                 }}>
-                    <PlayIcon/>
+                    <PlayArrowRoundedIcon/>
                 </Button>
             </div>
             <h3>{'title' in item ? item.title : item.name}</h3>

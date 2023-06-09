@@ -1,12 +1,10 @@
-import {Button} from "../../Button";
-
-import {ReactComponent as GoogleIcon} from "../../Icons/socials/google.svg";
+import {Button} from "@mui/material";
+import {Google as GoogleIcon} from '@mui/icons-material';
 
 import {signInWithGoogle} from '../../../services/firebase';
 
-
 export const Google = () => (
-    <Button className="button" type="button" onClick={signInWithGoogle}>
+    <Button onClick={signInWithGoogle}>
         <GoogleIcon/>
     </Button>
 )
