@@ -1,0 +1,16 @@
+@use '../../styles' as *;
+
+.section_title {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    display: block;
+    height: 1.5px;
+    width: 60px;
+    background: $main-color;
+  }
+}
