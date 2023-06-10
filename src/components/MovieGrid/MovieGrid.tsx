@@ -1,15 +1,15 @@
 import {FC, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import {Button} from "@mui/material";
+import {Box, Button, Grid} from "@mui/material";
 
 import {MovieCard} from '../MovieCard';
 import {MovieSearch} from '../MovieSearch';
 
-import {API, CATEGORY, IMoviesResponse, ITvsResponse, MOVIE_TYPE, TV_TYPE} from '../../api/api';
+import {CATEGORY} from '../../api/api';
 
-import {IMovie, ITv} from '../../types';
+import {useGetPopularMoviesQuery} from "../../services/movies";
 
-import styles from './MovieGrid.module.scss';
+import type {IMovie, ITv} from '../../types';
 
 interface Props {
     category: keyof typeof CATEGORY;
@@ -17,85 +17,52 @@ interface Props {
 
 export const MovieGrid: FC<Props> = ({category}) => {
     const [items, setItems] = useState<(IMovie | ITv)[]>([]);
-
     const [page, setPage] = useState(1);
-    const [totalPage, setTotalPage] = useState(0);
-
     const {keyword} = useParams<{ keyword?: string }>();
 
+    const {data} = useGetPopularMoviesQuery({
+        category,
+        page
+    });
+
     useEffect(() => {
-        const getList = async () => {
-            let response: IMoviesResponse | ITvsResponse;
-
-            if (!keyword) {
-                switch (category) {
-                    case CATEGORY.movie:
-                        response = await API.getMoviesList(MOVIE_TYPE.upcoming);
-                        break;
-                    default:
-                        response = await API.getTvList(TV_TYPE.popular);
-                }
-            } else {
-                const params = {
-                    query: keyword,
-                };
-
-                response = await API.search(category, {params});
-            }
-
-            setItems(response.results);
-            setTotalPage(response.total_pages);
-        };
-
-        getList();
-    }, [category, keyword]);
-
-    const loadMore = async () => {
-        let response: IMoviesResponse | ITvsResponse;
-
-        if (keyword === undefined) {
-            const params = {
-                page: page + 1,
-            };
-
-            switch (category) {
-                case CATEGORY.movie:
-                    response = await API.getMoviesList(MOVIE_TYPE.upcoming, {
-                        params,
-                    });
-                    break;
-                default:
-                    response = await API.getTvList(TV_TYPE.popular, {params});
-            }
-        } else {
-            const params = {
-                page: page + 1,
-                query: keyword,
-            };
-
-            response = await API.search(category, {params});
+        if (data?.results) {
+            setItems(prev => [...prev, ...data.results])
         }
+    }, [data])
 
-        setPage(page + 1);
-        setItems([...items, ...response.results]);
-    };
+    const loadMore = () => {
+        setPage(prev => prev + 1)
+    }
 
     return (
         <>
             <MovieSearch category={category} keyword={keyword}/>
             {items && (
-                <div className={styles.movie_grid}>{
+                <Grid
+                    container
+                    spacing={2}
+                    columns={10}
+                >{
                     items.map((item) => (
-                        <MovieCard category={category} item={item} key={item.id}/>
-                    ))
-                }</div>
+                        <Grid key={item.id} item xs={2}>
+                            <MovieCard category={category} item={item}/>
+                        </Grid>
+                    ))}
+                </Grid>
+
             )}
-            {page < totalPage && (
-                <div className={styles.movie_grid__loadmore}>
+
+            {data && page < data?.total_pages && (
+                <Box
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     <Button size="small" onClick={loadMore}>
                         Load more
                     </Button>
-                </div>
+                </Box>
             )}
         </>
     );

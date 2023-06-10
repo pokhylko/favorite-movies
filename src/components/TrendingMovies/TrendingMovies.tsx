@@ -5,12 +5,12 @@ import {Container} from "../Container";
 import {SectionTitle} from "../SectionTitle";
 import {MovieCard} from "../MovieCard";
 
-import {useGetPopularMoviesQuery} from "../../services/popularMovies";
+import {useGetPopularMoviesQuery} from "../../services/movies";
 
 import type {IMovie} from "../../types";
 
 export const TrendingMovies: FC = () => {
-    const {data} = useGetPopularMoviesQuery("");
+    const {data} = useGetPopularMoviesQuery({category: "movie", page: 1});
     const trendingMovies: IMovie[] = data?.results.slice(0, 18) || [];
 
     return <Container>
