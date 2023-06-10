@@ -1,27 +1,26 @@
 import {FC} from "react";
+import {Grid} from "@mui/material";
+
 import {Container} from "../Container";
+import {SectionTitle} from "../SectionTitle";
+import {MovieCard} from "../MovieCard";
 
-import {API_CONFIG} from "../../api/apiConfig";
+import {useGetPopularMoviesQuery} from "../../services/popularMovies";
 
-import {IMovie} from "../../types";
-
-import styles from './TrendingMovies.module.scss';
+import type {IMovie} from "../../types";
 
 export const TrendingMovies: FC = () => {
-    const trendingItems: IMovie[] = [].slice(5, 10);
+    const {data} = useGetPopularMoviesQuery("");
+    const trendingMovies: IMovie[] = data?.results.slice(0, 18) || [];
 
-    return <Container title="Trending movies">
-        <div className={styles.trending_movies}>
-            {trendingItems.map((item: IMovie) => <div
-                className={styles.trending_movies__img}
-                key={item.ids.trakt}
-            >
-                <img
-                    src={API_CONFIG.originalBackdropImage(item.poster_path)}
-                    alt={item.title}
-                />
-            </div>)
-            }
-        </div>
+    return <Container>
+        <SectionTitle>Trending movies</SectionTitle>
+        <Grid container spacing={2}>
+            {data && trendingMovies.map((item) =>
+                <Grid key={item.id} item xs={2}>
+                    <MovieCard category="movie" item={item}/>
+                </Grid>
+            )}
+        </Grid>
     </Container>
 };

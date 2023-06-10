@@ -1,45 +1,35 @@
 export interface IMovie {
-    adult: boolean;
-    backdrop_path: string;
-    genres: string[];
-    ids: {
-        trakt: number,
-        slug: string,
-        imdb: string,
-        tmdb: number
-    };
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    rating: number;
-    votes: number;
-    trailer: string
+    adult: boolean
+    backdrop_path: string
+    genre_ids: number[]
+    id: number
+    original_language: string
+    original_title: string
+    overview: string
+    popularity: number
+    poster_path: string
+    release_date: string
+    title: string
+    video: boolean
+    vote_average: number
+    vote_count: number
 }
 
 export interface ITv {
-    backdrop_path: string;
-    first_air_date: Date;
-    genres: string[];
-    ids: {
-        trakt: number,
-        slug: string,
-        imdb: string,
-        tmdb: number
-    };
-    name: string;
-    origin_country: string[];
-    original_language: string;
-    original_name: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    rating: number;
-    votes: number;
+    adult: boolean
+    backdrop_path: string
+    genre_ids: number[]
+    id: number
+    original_language: string
+    original_title: string
+    overview: string
+    popularity: number
+    poster_path: string
+    release_date: string
+    title: string
+    video: boolean
+    vote_average: number
+    vote_count: number
 }
 
 export interface IMovieDetails {

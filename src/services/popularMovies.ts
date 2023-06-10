@@ -2,13 +2,15 @@ import {api} from "./api";
 
 import {IMovie} from "../types";
 
-type PopularMoviesResponse = IMovie[];
+type PopularMoviesResponse = {
+    results: IMovie[]
+};
 
 export const popularMoviesApi = api.injectEndpoints({
     endpoints: (build) => ({
         getPopularMovies: build.query<PopularMoviesResponse, string>({
-            query: () => "movies/popular?extended=full",
-            providesTags: ["Popular movies"],
+            query: () => "movie/popular",
+            providesTags: ["popularMovies"],
         }),
     }),
 });

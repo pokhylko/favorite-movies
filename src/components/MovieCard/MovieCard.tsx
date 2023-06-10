@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import {Link} from 'react-router-dom';
-import {Button} from "@mui/material";
+import {Button, Typography} from "@mui/material";
 import {PlayArrowRounded as PlayArrowRoundedIcon} from '@mui/icons-material';
 
 import {IMovie, ITv} from '../../types';
@@ -18,7 +18,7 @@ interface Props {
 }
 
 export const MovieCard: FC<Props> = ({category, item}) => {
-    const link = `/${category}/${item.ids.trakt}`;
+    const link = `/${category}/${item.id}`;
     const moviePoster = item.poster_path || item.backdrop_path;
     const bg = API_CONFIG.w500PosterImage(moviePoster);
 
@@ -35,7 +35,7 @@ export const MovieCard: FC<Props> = ({category, item}) => {
                     <PlayArrowRoundedIcon/>
                 </Button>
             </div>
-            <h3>{'title' in item ? item.title : item.name}</h3>
+            <Typography variant="h6" component="h3">{item.title}</Typography>
         </Link>
     );
 };

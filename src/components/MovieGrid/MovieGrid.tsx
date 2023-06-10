@@ -86,7 +86,7 @@ export const MovieGrid: FC<Props> = ({category}) => {
             {items && (
                 <div className={styles.movie_grid}>{
                     items.map((item) => (
-                        <MovieCard category={category} item={item} key={item.ids.trakt}/>
+                        <MovieCard category={category} item={item} key={item.id}/>
                     ))
                 }</div>
             )}
